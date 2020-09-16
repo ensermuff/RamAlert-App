@@ -25,6 +25,6 @@ public class ExampleInstrumentedTest {
         assertEquals("com.vcu.teamnapp", appContext.getPackageName());
         
         int x = 4;
-        //Fixed it...
+        //fix
     }
 }

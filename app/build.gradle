@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -25,7 +26,7 @@ android {
         exclude 'LICENSE.txt'
     }
 }
-
+//dependencies needed for implementation
 dependencies {
     androidTestImplementation 'androidx.test:runner:1.3.0'
     androidTestImplementation 'androidx.test:rules:1.3.0'

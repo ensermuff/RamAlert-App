@@ -6,4 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".EmergencyVCUNumbersActivity">
 
+    <TextView
+        android:id="@+id/emergencyListTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif"
+        android:text="EMERGENCY PHONE NUMBERS"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

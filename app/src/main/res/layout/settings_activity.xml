@@ -5,7 +5,19 @@
     <FrameLayout
         android:id="@+id/settings"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="397dp"
+            android:layout_height="77dp" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Switch" />
+    </FrameLayout>
 
 
 </LinearLayout>

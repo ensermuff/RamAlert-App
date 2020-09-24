@@ -13,10 +13,11 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
-
+//Main Activity class
 public class MainActivity extends AppCompatActivity {
-
+    Button buttonNotification;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
 
     @Override
@@ -59,4 +61,5 @@ public class MainActivity extends AppCompatActivity {
             //Comment for 9/21 class
         }
     }
+
 }

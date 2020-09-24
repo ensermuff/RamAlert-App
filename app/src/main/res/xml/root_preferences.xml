@@ -4,7 +4,7 @@
 
     <PreferenceCategory
         android:textColor="#000000"
-        app:title="@string/sync_header">
+        app:title="@string/settings_header">
 
         <PreferenceCategory android:title="Preference category">
 
@@ -49,11 +49,13 @@
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/sync_header">
+    <PreferenceCategory app:title="@string/contacts_header">
 
         <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+            app:key="contacts"
+            app:title="@string/contacts_title"
+            app:summaryOff="@string/contacts_summary_off"
+            app:summaryOn="@string/contacts_summary_on"/>
 
         <SwitchPreferenceCompat
             app:dependency="sync"

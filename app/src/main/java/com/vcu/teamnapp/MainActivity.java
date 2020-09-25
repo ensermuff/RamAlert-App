@@ -1,5 +1,6 @@
 package com.vcu.teamnapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,10 +13,11 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
-
+//Main Activity class
 public class MainActivity extends AppCompatActivity {
-
+    Button buttonNotification;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
 
     @Override
@@ -49,9 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent myIntent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(myIntent);
             return true;
+        }else{
+            return super.onOptionsItemSelected(item);
+            
+            //Comment for 9/21 class
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
 }

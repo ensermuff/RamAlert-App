@@ -9,4 +9,23 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference headers -->
+    <string name="messages_header">Messages</string>
+    <string name="settings_header">Settings</string>
+    <string name="contacts_header">Contacts</string>
+
+    <!-- Preferences titles-->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+    <string name="sync_title">Sync </string>
+    <string name="contacts_title">Contacts Info</string>
+
+    <!-- Sync Preferences -->
+    <string name="contacts_summary_off">Click the switch to see contacts info</string>
+    <string name="contacts_summary_on">Contact information is: N/A </string>
+    <string name="attachment_title">Download incoming attachments </string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

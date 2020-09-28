@@ -53,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
         cursor.moveToFirst();
         myTextView.setText(cursor.getString(12));
 
-        //Create sms and read sms
 
-        //test commit
     }
 
 

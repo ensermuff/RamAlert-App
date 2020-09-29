@@ -19,12 +19,6 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="Edit text preference" />
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
 
     </PreferenceCategory>
     <EditTextPreference
@@ -49,20 +43,14 @@
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/contacts_header">
+    <PreferenceCategory app:title="@string/location_header">
 
-        <SwitchPreferenceCompat
-            app:key="contacts"
-            app:title="@string/contacts_title"
-            app:summaryOff="@string/contacts_summary_off"
-            app:summaryOn="@string/contacts_summary_on"/>
-
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+        <CheckBoxPreference
+            app:key="location"
+            app:title="@string/location_title"
+            <intent android:action="an"
+            app:summaryOff="@string/location_summary_off"
+            app:summaryOn="@string/location_summary_on"/>
 
     </PreferenceCategory>
 </PreferenceScreen>

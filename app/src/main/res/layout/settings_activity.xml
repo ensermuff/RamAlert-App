@@ -7,10 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="397dp"
-            android:layout_height="77dp" />
 
     </FrameLayout>
 

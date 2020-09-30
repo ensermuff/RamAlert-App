@@ -27,7 +27,8 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="Edit text preference" />
-    <PreferenceCategory app:title="@string/messages_header">
+
+    <PreferenceCategory app:title="@string/notifications_header">
 
         <EditTextPreference
             app:key="signature"
@@ -35,11 +36,11 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
+            app:defaultValue="Notifications about alerts within the certain distance"
+            app:entries="@array/notification_entries"
+            app:entryValues="@array/notification_values"
+            app:key="notification"
+            app:title="@string/notifications_title"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
@@ -48,7 +49,6 @@
         <CheckBoxPreference
             app:key="location"
             app:title="@string/location_title"
-            <intent android:action="an"
             app:summaryOff="@string/location_summary_off"
             app:summaryOn="@string/location_summary_on"/>
 

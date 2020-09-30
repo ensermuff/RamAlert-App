@@ -12,13 +12,13 @@
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference headers -->
-    <string name="messages_header">Messages</string>
+    <string name="notifications_header">Notifications</string>
     <string name="settings_header">Settings</string>
     <string name="location_header">Location</string>
 
     <!-- Preferences titles-->
     <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="notifications_title">Notification type</string>
     <string name="sync_title">Sync </string>
     <string name="location_title">Location</string>
 

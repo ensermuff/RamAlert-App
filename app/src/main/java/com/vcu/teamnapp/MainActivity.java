@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        myTextView = findViewById(R.id.textView);
-        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_SMS}, PackageManager.PERMISSION_GRANTED);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void Read_SMS (View view){
+ /*   public void Read_SMS (View view){
 
         Cursor cursor = getContentResolver().query(Uri.parse("content://sms"), null, null,null,null);
         cursor.moveToFirst();
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

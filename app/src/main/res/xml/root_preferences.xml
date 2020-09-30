@@ -19,12 +19,6 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="Edit text preference" />
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
 
     </PreferenceCategory>
     <EditTextPreference
@@ -33,7 +27,8 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="Edit text preference" />
-    <PreferenceCategory app:title="@string/messages_header">
+
+    <PreferenceCategory app:title="@string/notifications_header">
 
         <EditTextPreference
             app:key="signature"
@@ -41,28 +36,21 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
+            app:defaultValue="Notifications about alerts within the certain distance"
+            app:entries="@array/notification_entries"
+            app:entryValues="@array/notification_values"
+            app:key="notification"
+            app:title="@string/notifications_title"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/contacts_header">
+    <PreferenceCategory app:title="@string/location_header">
 
-        <SwitchPreferenceCompat
-            app:key="contacts"
-            app:title="@string/contacts_title"
-            app:summaryOff="@string/contacts_summary_off"
-            app:summaryOn="@string/contacts_summary_on"/>
-
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+        <CheckBoxPreference
+            app:key="location"
+            app:title="@string/location_title"
+            app:summaryOff="@string/location_summary_off"
+            app:summaryOn="@string/location_summary_on"/>
 
     </PreferenceCategory>
 </PreferenceScreen>

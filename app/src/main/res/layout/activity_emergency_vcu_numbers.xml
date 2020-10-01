@@ -10,46 +10,163 @@
         android:id="@+id/emergencyListTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="sans-serif"
-        android:text="EMERGENCY PHONE NUMBERS"
+        android:text="@string/emergency_phone_numbers"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/onCampusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="156dp"
+        android:text="@string/on_campus_emergency"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/offCampusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="232dp"
+        android:text="@string/off_campus_emergency"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/vcuPDTextView"
-        android:layout_width="156dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="143dp"
-        android:text="VCU Police Department"
+        android:layout_width="267dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="308dp"
+        android:text="@string/vcu_police_department_non_emergency"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/richmondPDTextView"
-        android:layout_width="189dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginEnd="206dp"
-        android:text="Richmond Police Department"
+        android:id="@+id/rvaPDTextView"
+        android:layout_width="352dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="416dp"
+        android:text="@string/richmond_police_department_non_emergency"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ramsafeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="528dp"
+        android:text="@string/ramsafe_escort_service"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/counselingServicesTextView"
+        android:layout_width="300dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="608dp"
+        android:text="@string/_24_hour_student_counseling_services"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/onCampusPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
+        android:text="@string/_804_828_1234"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView911"
+        android:id="@+id/offCampusEmergencyPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="264dp"
+        android:text="@string/_911"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/vcuPDPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="372dp"
+        android:text="@string/_804_828_1196"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rvaPDPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="481dp"
+        android:text="@string/_804_646_5100"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ramsafePhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="560dp"
+        android:text="@string/_804_828_safe_7233"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/counselingServicesPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="669dp"
+        android:text="@string/_804_828_6200"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="228dp"
-        android:text="911"
+        android:layout_marginTop="16dp"
+        android:text="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

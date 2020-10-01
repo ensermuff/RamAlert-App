@@ -26,4 +26,21 @@
     <string name="location_summary_off">Location services: off</string>
     <string name="location_summary_on">Location services: on </string>
 
+
+    <!-- VCU Emergency Numbers info -->
+    <string name="emergency_phone_numbers">EMERGENCY PHONE NUMBERS</string>
+    <string name="on_campus_emergency">On-Campus Emergency</string>
+    <string name="off_campus_emergency">Off-Campus Emergency</string>
+    <string name="vcu_police_department_non_emergency">VCU Police Department (Non-Emergency)</string>
+    <string name="richmond_police_department_non_emergency">Richmond Police Department (Non-Emergency)</string>
+    <string name="ramsafe_escort_service">RamSafe Escort Service</string>
+    <string name="_24_hour_student_counseling_services">24 Hour Student Counseling Services</string>
+    <string name="_804_828_1234">(804) 828-1234</string>
+    <string name="_911">911</string>
+    <string name="_804_828_1196">(804) 828-1196</string>
+    <string name="_804_646_5100">(804) 646-5100</string>
+    <string name="_804_828_safe_7233">(804) 828-SAFE (7233)</string>
+    <string name="_804_828_6200">(804) 828-6200</string>
+    <string name="back"><![CDATA[< back]]></string>
+
 </resources>

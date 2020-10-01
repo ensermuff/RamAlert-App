@@ -1,25 +1,18 @@
 package com.vcu.teamnapp;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 
-import android.view.View;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 //Main Activity class
 public class MainActivity extends AppCompatActivity {
@@ -33,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        myTextView = findViewById(R.id.textView);
-        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_SMS}, PackageManager.PERMISSION_GRANTED);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,18 +37,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-    public void Read_SMS (View view){
-
-        Cursor cursor = getContentResolver().query(Uri.parse("content://sms"), null, null,null,null);
-        cursor.moveToFirst();
-        myTextView.setText(cursor.getString(12));
-
-        //Create sms and read sms
-
-        //test commit
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

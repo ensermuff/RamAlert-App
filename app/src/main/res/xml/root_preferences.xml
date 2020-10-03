@@ -10,8 +10,18 @@
 
         </PreferenceCategory>
         <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+            app:key="distance"
+            app:title="@string/distance_title"
+            app:defaultValue="@string/distance_summary_off"
+            app:summaryOff="@string/distance_summary_off"
+            app:summaryOn="@string/distance_summary_on"/>
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Edit text preference" />
 
         <EditTextPreference
             android:defaultValue="Default value"
@@ -21,12 +31,6 @@
             android:title="Edit text preference" />
 
     </PreferenceCategory>
-    <EditTextPreference
-        android:defaultValue="Default value"
-        android:key="edit_text_preference_1"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="Edit text preference" />
 
     <PreferenceCategory app:title="@string/notifications_header">
 
@@ -36,7 +40,7 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            app:defaultValue="Notifications about alerts within the certain distance"
+            app:defaultValue="Notifications on all Alerts"
             app:entries="@array/notification_entries"
             app:entryValues="@array/notification_values"
             app:key="notification"

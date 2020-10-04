@@ -18,13 +18,18 @@
 
     <!-- Preferences titles-->
     <string name="signature_title">Your signature</string>
-    <string name="notifications_title">Notification type</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_title2">Notification type</string>
     <string name="distance_title">Distance </string>
     <string name="location_title">Location</string>
 
     <!-- Distance -->
     <string name="distance_summary_off">Distance: 2.5 miles</string>
     <string name="distance_summary_on">Distance: 5.0 miles</string>
+
+    <!-- Notifications -->
+    <string name="notification_summary_off">Notifications: off</string>
+    <string name="notification_summary_on">Notifications: on</string>
 
     <!-- Location Preference -->
     <string name="location_summary_off">Location services: off</string>

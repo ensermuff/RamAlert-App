@@ -17,11 +17,9 @@
             app:summaryOn="@string/distance_summary_on"/>
 
         <EditTextPreference
-            android:defaultValue="Default value"
-            android:key="edit_text_preference_1"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            android:title="Edit text preference" />
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
             android:defaultValue="Default value"
@@ -34,17 +32,19 @@
 
     <PreferenceCategory app:title="@string/notifications_header">
 
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat
+            app:key="notifications switch"
+            app:title="@string/notifications_title"
+            app:defaultValue="@string/notification_summary_off"
+            app:summaryOff="@string/notification_summary_off"
+            app:summaryOn="@string/notification_summary_on"/>
 
         <ListPreference
             app:defaultValue="Notifications on all Alerts"
             app:entries="@array/notification_entries"
             app:entryValues="@array/notification_values"
             app:key="notification"
-            app:title="@string/notifications_title"
+            app:title="@string/notifications_title2"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>

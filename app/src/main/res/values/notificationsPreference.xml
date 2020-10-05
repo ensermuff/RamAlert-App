@@ -2,7 +2,7 @@
     <!-- Notifications Preference -->
     <string-array name="notification_entries">
         <item>Notifications on alerts within the certain distance</item>
-        <item>Notifications on all Alerts</item>
+        <item>Notifications on all alerts</item>
     </string-array>
 
     <string-array name="notification_values">

@@ -19,13 +19,16 @@
     <!-- Preferences titles-->
     <string name="signature_title">Your signature</string>
     <string name="notifications_title">Notifications</string>
+    <string name="Alerts_title">Automatic alerts removal</string>
     <string name="notifications_title2">Notification type</string>
     <string name="distance_title">Distance </string>
     <string name="location_title">Location</string>
 
-    <!-- Distance -->
+    <!-- General -->
     <string name="distance_summary_off">Distance: 2.5 miles</string>
     <string name="distance_summary_on">Distance: 5.0 miles</string>
+    <string name="automaticAlertsRemoval_summary_off">Automatic alerts removal: off</string>
+    <string name="automaticAlertsRemoval_summary_on">Automatic alerts removal: on</string>
 
     <!-- Notifications -->
     <string name="notification_summary_off">Notifications: off</string>

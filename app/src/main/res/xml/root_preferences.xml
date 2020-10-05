@@ -6,27 +6,22 @@
         android:textColor="#000000"
         app:title="@string/settings_header">
 
-        <PreferenceCategory android:title="Preference category">
+        <PreferenceCategory android:title="General">
 
         </PreferenceCategory>
+
         <SwitchPreferenceCompat
             app:key="distance"
             app:title="@string/distance_title"
             app:defaultValue="@string/distance_summary_off"
             app:summaryOff="@string/distance_summary_off"
             app:summaryOn="@string/distance_summary_on"/>
-
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
-
-        <EditTextPreference
-            android:defaultValue="Default value"
-            android:key="edit_text_preference_1"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            android:title="Edit text preference" />
+        <SwitchPreferenceCompat
+            app:key="alerts switch"
+            app:title="@string/Alerts_title"
+            app:defaultValue="@string/automaticAlertsRemoval_summary_off"
+            app:summaryOff="@string/automaticAlertsRemoval_summary_off"
+            app:summaryOn="@string/automaticAlertsRemoval_summary_on"/>
 
     </PreferenceCategory>
 
@@ -40,7 +35,7 @@
             app:summaryOn="@string/notification_summary_on"/>
 
         <ListPreference
-            app:defaultValue="Notifications on all Alerts"
+            app:defaultValue="Notifications on all alerts"
             app:entries="@array/notification_entries"
             app:entryValues="@array/notification_values"
             app:key="notification"

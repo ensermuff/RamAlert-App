@@ -10,11 +10,12 @@
         android:id="@+id/emergencyListTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="sans-serif"
-        android:text="@string/emergency_phone_numbers"
+        android:text="IMPORTANT PHONE NUMBERS FOR YOUR SAFETY"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +29,7 @@
         android:layout_marginTop="156dp"
         android:text="@string/on_campus_emergency"
         android:textSize="24sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,6 +40,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginTop="232dp"
         android:text="@string/off_campus_emergency"
+        android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,6 +54,7 @@
         android:text="@string/vcu_police_department_non_emergency"
         android:textAlignment="center"
         android:textSize="24sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,6 +67,7 @@
         android:text="@string/richmond_police_department_non_emergency"
         android:textAlignment="center"
         android:textSize="24sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,6 +79,7 @@
         android:layout_marginTop="528dp"
         android:text="@string/ramsafe_escort_service"
         android:textSize="24sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,6 +92,7 @@
         android:text="@string/_24_hour_student_counseling_services"
         android:textAlignment="center"
         android:textSize="24sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -171,11 +178,12 @@
         android:layout_width="96dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:background="@android:color/white"
+        android:onClick="goBackToMain"
         android:text="@string/back"
         android:textAlignment="center"
-        android:onClick="goBackToMain"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

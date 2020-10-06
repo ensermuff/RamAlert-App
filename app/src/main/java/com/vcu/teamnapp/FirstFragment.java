@@ -31,4 +31,6 @@ public class FirstFragment extends Fragment {
             }
         });
     }
+
+    //Adding a Navigation bar so users can move from page to page
 }

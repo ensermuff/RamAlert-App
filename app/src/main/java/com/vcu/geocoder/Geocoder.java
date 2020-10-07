@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Geocoder {
     private static final String API_KEY = "AIzaSyAl-RZHT5WG66Ghz_wcL79U185LaSFJM74";
     public String[] geocode(String vcuAlert) throws IOException, JSONException, ParseException {
-        vcuAlert = vcuAlert.replaceAll(" ", "+") + "Richmond";
+        vcuAlert = formatMessage(vcuAlert);
 
         final String GEOCODING_RESOURCE = "https://maps.googleapis.com/maps/api/geocode/json?address=" + vcuAlert;
 
@@ -34,13 +34,12 @@ public class Geocoder {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod(requestMethod);
         String response = "";
-        if(connection.getResponseCode() == 200) {
-            Scanner in = new Scanner(url.openStream());
-            while (in.hasNext()) {
-                response += in.nextLine();
-            }
-            in.close();
+        Scanner in = new Scanner(url.openStream());
+        while (in.hasNext()) {
+            response += in.nextLine();
         }
+        in.close();
+
         JSONObject json = parseLocation(response);
 
 
@@ -57,6 +56,18 @@ public class Geocoder {
         JSONObject coordinates = (JSONObject) geometry.get("location");
 
         return coordinates;
+    }
+    public String formatMessage(String s){
+        s = s.replaceAll(" ", "+");
+        s = s.substring(10);
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == '-' && s.charAt(i+1) == '-'){
+                s = s.substring(i+2);
+                break;
+            }
+        }
+        s += "+Richmond";
+        return s;
     }
 
 }

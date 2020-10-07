@@ -20,7 +20,7 @@ public class GeocoderTest {
     @Test
     public void geocode() throws IOException, JSONException, ParseException {
         Geocoder geocoder = new Geocoder();
-        String[] arr = geocoder.geocode("VCU ALERT Robbery CORE MP Campus-- Broad/Harrison. Police on scene. Avoid area.");
+        String[] arr = geocoder.geocode("VCU ALERT Robbery CORE MP Campus --Broad/Harrison. Police on scene. Avoid area.");
         String latitude = arr[0];
         String longitude = arr[1];
         assertEquals(latitude, "37.5514764");
@@ -33,8 +33,8 @@ public class GeocoderTest {
                 "Shooting OFF MCV Campus (Conclusion) --4th/Grace. Situation resolved. Go to alert.vcu.edu for additional information");
         String latitude = arr[0];
         String longitude = arr[1];
-        assertEquals(latitude, "37.5514764");
-        assertEquals(longitude, "-77.45195129999999");
+        assertEquals(latitude, "37.5400695");
+        assertEquals(longitude, "-77.4299163");
     }
 
 }

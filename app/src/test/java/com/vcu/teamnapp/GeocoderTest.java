@@ -3,6 +3,7 @@ package com.vcu.teamnapp;
 import com.vcu.geocoder.Geocoder;
 
 import org.json.JSONException;
+import org.json.simple.parser.ParseException;
 import org.junit.After;
 import org.junit.Test;
 
@@ -17,8 +18,23 @@ public class GeocoderTest {
     }
 
     @Test
-    public void geocode() throws IOException, InterruptedException, JSONException {
+    public void geocode() throws IOException, JSONException, ParseException {
         Geocoder geocoder = new Geocoder();
-        System.out.print(geocoder.geocode("VCU ALERT Robbery CORE MP Campus-- Broad/Harrison. Police on scene. Avoid area."));
+        String[] arr = geocoder.geocode("VCU ALERT Robbery CORE MP Campus-- Broad/Harrison. Police on scene. Avoid area.");
+        String latitude = arr[0];
+        String longitude = arr[1];
+        assertEquals(latitude, "37.5514764");
+        assertEquals(longitude, "-77.45195129999999");
     }
+    @Test
+    public void geocode1() throws IOException, JSONException, ParseException {
+        Geocoder geocoder = new Geocoder();
+        String[] arr = geocoder.geocode("VCU ALERT\n" +
+                "Shooting OFF MCV Campus (Conclusion) --4th/Grace. Situation resolved. Go to alert.vcu.edu for additional information");
+        String latitude = arr[0];
+        String longitude = arr[1];
+        assertEquals(latitude, "37.5514764");
+        assertEquals(longitude, "-77.45195129999999");
+    }
+
 }

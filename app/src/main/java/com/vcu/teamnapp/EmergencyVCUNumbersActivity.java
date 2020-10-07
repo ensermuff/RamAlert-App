@@ -22,6 +22,4 @@ public class EmergencyVCUNumbersActivity extends AppCompatActivity {
         Intent intent = new Intent(EmergencyVCUNumbersActivity.this,MainActivity.class);
         startActivity(intent);
     }
-
-    // don't forget a button from main that leads to this activity
 }

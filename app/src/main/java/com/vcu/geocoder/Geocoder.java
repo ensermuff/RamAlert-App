@@ -1,21 +1,11 @@
 package com.vcu.geocoder;
 
-
-import android.net.UrlQuerySanitizer;
-
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.io.JsonEOFException;
-
-import java.io.BufferedReader;
 import java.io.IOException;
+import org.json.JSONException;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONTokener;
 
-
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;

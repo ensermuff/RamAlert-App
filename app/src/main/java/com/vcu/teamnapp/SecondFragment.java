@@ -1,4 +1,4 @@
-package com.vcu.teamnapp;
+package com.vcu;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -13,6 +13,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.BundleCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+
+import com.vcu.teamnapp.R;
 
 public class SecondFragment extends Fragment {
     TextView myTextView;

@@ -1,7 +1,5 @@
 package com.vcu.geocoder;
 
-import com.fasterxml.jackson.core.JsonParser;
-
 import java.io.IOException;
 import org.json.JSONException;
 
@@ -15,8 +13,13 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class Geocoder {
+
     private static final String API_KEY = "AIzaSyAl-RZHT5WG66Ghz_wcL79U185LaSFJM74";
+
     public String[] geocode(String vcuAlert) throws IOException, JSONException, ParseException {
+        //if(vcuAlert.contains("Conclusion")){
+            //call method to remove "Pin" on the map
+        //}
         vcuAlert = formatMessage(vcuAlert);
 
         final String GEOCODING_RESOURCE = "https://maps.googleapis.com/maps/api/geocode/json?address=" + vcuAlert;

@@ -12,22 +12,49 @@
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference headers -->
-    <string name="messages_header">Messages</string>
+    <string name="notifications_header">Notifications</string>
     <string name="settings_header">Settings</string>
-    <string name="contacts_header">Contacts</string>
+    <string name="location_header">Location</string>
 
     <!-- Preferences titles-->
     <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-    <string name="sync_title">Sync </string>
-    <string name="contacts_title">Contacts Info</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="Alerts_title">Automatic alerts removal</string>
+    <string name="notifications_title2">Notification type</string>
+    <string name="distance_title">Distance </string>
+    <string name="location_title">Location</string>
 
-    <!-- Sync Preferences -->
-    <string name="contacts_summary_off">Click the switch to see contacts info</string>
-    <string name="contacts_summary_on">Contact information is: N/A </string>
-    <string name="attachment_title">Download incoming attachments </string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="textview">TextView</string>
-    <string name="readsms">ReadSMS</string>
+    <!-- General -->
+    <string name="distance_summary_off">Distance: 2.5 miles</string>
+    <string name="distance_summary_on">Distance: 5.0 miles</string>
+    <string name="automaticAlertsRemoval_summary_off">Automatic alerts removal: off</string>
+    <string name="automaticAlertsRemoval_summary_on">Automatic alerts removal: on</string>
+
+    <!-- Notifications -->
+    <string name="notification_summary_off">Notifications: off</string>
+    <string name="notification_summary_on">Notifications: on</string>
+
+    <!-- Location Preference -->
+    <string name="location_summary_off">Location services: off</string>
+    <string name="location_summary_on">Location services: on </string>
+
+
+    <!-- VCU Emergency Numbers info -->
+    <string name="emergency_phone_numbers">EMERGENCY PHONE NUMBERS</string>
+    <string name="on_campus_emergency">On-Campus Emergency</string>
+    <string name="off_campus_emergency">Off-Campus Emergency</string>
+    <string name="vcu_police_department_non_emergency">VCU Police Department (Non-Emergency)</string>
+    <string name="richmond_police_department_non_emergency">Richmond Police Department (Non-Emergency)</string>
+    <string name="ramsafe_escort_service">RamSafe Escort Service</string>
+    <string name="_24_hour_student_counseling_services">24 Hour Student Counseling Services</string>
+    <string name="_804_828_1234">(804) 828-1234</string>
+    <string name="_911">911</string>
+    <string name="_804_828_1196">(804) 828-1196</string>
+    <string name="_804_646_5100">(804) 646-5100</string>
+    <string name="_804_828_safe_7233">(804) 828-SAFE (7233)</string>
+    <string name="_804_828_6200">(804) 828-6200</string>
+    <string name="back"><![CDATA[< back]]></string>
+    <string name="about_us">About US</string>
+    <string name="support">Support</string>
+
 </resources>

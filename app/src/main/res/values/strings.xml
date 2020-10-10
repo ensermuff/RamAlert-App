@@ -25,8 +25,8 @@
     <string name="location_title">Location</string>
 
     <!-- General -->
-    <string name="distance_summary_off">Distance: 2.5 miles</string>
-    <string name="distance_summary_on">Distance: 5.0 miles</string>
+    <string name="distance_summary_off">Distance: 0.2 miles in radius</string>
+    <string name="distance_summary_on">Distance: 1.0 miles in radius</string>
     <string name="automaticAlertsRemoval_summary_off">Automatic alerts removal: off</string>
     <string name="automaticAlertsRemoval_summary_on">Automatic alerts removal: on</string>
 

@@ -10,29 +10,38 @@
 
         </PreferenceCategory>
 
+        <SeekBarPreference
+            app:key="seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/seekbar"
+            android:max="1"
+            android:progress="0"
+            android:thumb="@drawable/custom_thumb" />
+
         <SwitchPreferenceCompat
-            app:key="distance"
-            app:title="@string/distance_title"
             app:defaultValue="@string/distance_summary_off"
+            app:key="distance"
             app:summaryOff="@string/distance_summary_off"
-            app:summaryOn="@string/distance_summary_on"/>
+            app:summaryOn="@string/distance_summary_on"
+            app:title="@string/distance_title" />
         <SwitchPreferenceCompat
-            app:key="alerts switch"
-            app:title="@string/Alerts_title"
             app:defaultValue="@string/automaticAlertsRemoval_summary_off"
+            app:key="alerts switch"
             app:summaryOff="@string/automaticAlertsRemoval_summary_off"
-            app:summaryOn="@string/automaticAlertsRemoval_summary_on"/>
+            app:summaryOn="@string/automaticAlertsRemoval_summary_on"
+            app:title="@string/Alerts_title" />
 
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/notifications_header">
 
         <SwitchPreferenceCompat
-            app:key="notifications switch"
-            app:title="@string/notifications_title"
             app:defaultValue="@string/notification_summary_off"
+            app:key="notifications switch"
             app:summaryOff="@string/notification_summary_off"
-            app:summaryOn="@string/notification_summary_on"/>
+            app:summaryOn="@string/notification_summary_on"
+            app:title="@string/notifications_title" />
 
         <ListPreference
             app:defaultValue="Notifications on all alerts"
@@ -45,11 +54,12 @@
     </PreferenceCategory>
     <PreferenceCategory app:title="@string/location_header">
 
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
+            app:defaultValue="@string/location_summary_off"
             app:key="location"
-            app:title="@string/location_title"
             app:summaryOff="@string/location_summary_off"
-            app:summaryOn="@string/location_summary_on"/>
+            app:summaryOn="@string/location_summary_on"
+            app:title="@string/location_title" />
 
     </PreferenceCategory>
 </PreferenceScreen>

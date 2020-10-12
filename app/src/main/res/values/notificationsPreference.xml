@@ -1,0 +1,12 @@
+<resources>
+    <!-- Notifications Preference -->
+    <string-array name="notification_entries">
+        <item>Notifications on alerts within the certain distance</item>
+        <item>Notifications on all alerts</item>
+    </string-array>
+
+    <string-array name="notification_values">
+        <item>notification</item>
+        <item>notification_all</item>
+    </string-array>
+</resources>

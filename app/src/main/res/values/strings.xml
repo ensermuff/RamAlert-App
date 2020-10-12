@@ -56,5 +56,6 @@
     <string name="back"><![CDATA[< back]]></string>
     <string name="about_us">About US</string>
     <string name="support">Support</string>
+    <string name="title_activity_display_alert">Map</string>
 
 </resources>

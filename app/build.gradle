@@ -35,6 +35,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.3.0'
     implementation 'androidx.navigation:navigation-ui:2.3.0'
     implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     //JSON parsing library
     testImplementation 'junit:junit:4.12'
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'

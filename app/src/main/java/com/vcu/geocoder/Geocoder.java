@@ -1,7 +1,8 @@
 package com.vcu.geocoder;
 
+import android.os.AsyncTask;
+
 import java.io.IOException;
-import org.json.JSONException;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
@@ -12,11 +13,23 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
-public class Geocoder {
+public class Geocoder extends AsyncTask<String, Void, String[]> {
 
     private static final String API_KEY = "AIzaSyAl-RZHT5WG66Ghz_wcL79U185LaSFJM74";
-
-    public String[] geocode(String vcuAlert) throws IOException, JSONException, ParseException {
+    @Override
+    public String[] doInBackground(String... strings) {
+        Geocoder geocoder = new Geocoder();
+        String[] coordinates = new String[2];
+        try {
+            coordinates = geocoder.geocode(strings[0]);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }  catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return coordinates;
+    }
+    public String[] geocode(String vcuAlert) throws IOException, ParseException {
         //if(vcuAlert.contains("Conclusion")){
             //call method to remove "Pin" on the map
         //}
@@ -33,7 +46,7 @@ public class Geocoder {
         coordinates[1] = json.get("lng").toString();
         return coordinates;
     }
-    public JSONObject getJsonResponse(URL url, String requestMethod) throws IOException, JSONException, ParseException {
+    public JSONObject getJsonResponse(URL url, String requestMethod) throws IOException, ParseException {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod(requestMethod);
         String response = "";
@@ -72,5 +85,6 @@ public class Geocoder {
         s += "+Richmond";
         return s;
     }
+
 
 }

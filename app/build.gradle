@@ -49,3 +49,6 @@ dependencies {
     testImplementation 'androidx.test:core:1.0.0'
     testImplementation 'org.mockito:mockito-core:1.10.19'
 }
+configurations{
+    compile.exclude group: "junit", module: "junit"
+}

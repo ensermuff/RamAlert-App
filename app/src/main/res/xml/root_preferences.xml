@@ -10,6 +10,15 @@
 
         </PreferenceCategory>
 
+        <Preference
+            android:summary="Click to go to the Emergency VCU Numbers page"
+            android:title="Emergency VCU Phone Numbers">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
+                android:targetClass="com.vcu.teamnapp.EmergencyVCUNumbersActivity"
+                android:targetPackage="com.vcu.teamnapp" />
+        </Preference>
+
         <SeekBarPreference
             app:key="seekBar"
             android:layout_width="match_parent"

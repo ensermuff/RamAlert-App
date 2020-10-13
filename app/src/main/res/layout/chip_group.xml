@@ -3,31 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".SettingsActivity"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
-</androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--
+    <com.google.android.material.chip.Chip
+        android:id="@+id/Fire"
+        android:layout_width="72dp"
+        android:layout_height="43dp"
+        android:text="Fire"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="113dp"
+        tools:ignore="MissingConstraints" />
 
-    <android.support.design.chip.ChipGroup
-        android:id="@+id/chip_group"
-        android:layout_width="match_parent"
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:chipSpacing="10dp"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="249dp"
         tools:ignore="MissingConstraints">
 
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/theft"/>
+    </com.google.android.material.chip.ChipGroup>
 
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fire"/>
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip5"
+        android:layout_width="72dp"
+        android:layout_height="39dp"
+        android:text="Theft"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="166dp"
+        tools:ignore="MissingConstraints" />
 
-        <android.support.design.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/other"/>
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip6"
+        android:layout_width="80dp"
+        android:layout_height="43dp"
+        android:text="Other"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="213dp"
+        tools:ignore="MissingConstraints" />
 
-    </android.support.design.chip.ChipGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

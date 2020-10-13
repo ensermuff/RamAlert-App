@@ -35,6 +35,7 @@
             app:summaryOn="@string/notification_summary_on"/>
 
         <ListPreference
+            android:layout_width="match_parent"
             app:defaultValue="Notifications on all alerts"
             app:entries="@array/notification_entries"
             app:entryValues="@array/notification_values"
@@ -50,6 +51,10 @@
             app:title="@string/location_title"
             app:summaryOff="@string/location_summary_off"
             app:summaryOn="@string/location_summary_on"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory app:chipgroup = "Types of Crimes:">
+
 
     </PreferenceCategory>
 </PreferenceScreen>

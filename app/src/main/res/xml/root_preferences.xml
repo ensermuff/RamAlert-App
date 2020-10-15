@@ -19,26 +19,28 @@
                 android:targetPackage="com.vcu.teamnapp" />
         </Preference>
 
-        <SeekBarPreference
-            app:key="seekBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/seekbar"
-            android:max="1"
-            android:progress="0"
-            android:thumb="@drawable/custom_thumb" />
-
         <SwitchPreferenceCompat
             app:defaultValue="@string/distance_summary_off"
             app:key="distance"
             app:summaryOff="@string/distance_summary_off"
             app:summaryOn="@string/distance_summary_on"
             app:title="@string/distance_title" />
+
+        <SeekBarPreference
+            app:key="seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/seekbar"
+            android:max="5"
+            android:progress="0"
+            android:title="Title"
+            android:layout="@layout/myseekbar"/>
+
         <SwitchPreferenceCompat
-            app:defaultValue="@string/automaticAlertsRemoval_summary_off"
-            app:key="alerts switch"
-            app:summaryOff="@string/automaticAlertsRemoval_summary_off"
-            app:summaryOn="@string/automaticAlertsRemoval_summary_on"
+            app:defaultValue="@string/alertsSaver_summary_off"
+            app:key="alerts"
+            app:summaryOff="@string/alertsSaver_summary_off"
+            app:summaryOn="@string/alertsSaver_summary_on"
             app:title="@string/Alerts_title" />
 
     </PreferenceCategory>

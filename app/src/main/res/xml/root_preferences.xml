@@ -74,8 +74,6 @@
             app:title="@string/location_title" />
 
     </PreferenceCategory>
-    <PreferenceCategory app:chipgroup = "Types of Crimes:">
 
 
-    </PreferenceCategory>
 </PreferenceScreen>

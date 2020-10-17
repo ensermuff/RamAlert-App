@@ -29,6 +29,7 @@ public class Geocoder extends AsyncTask<String, Void, String[]> {
         }
         return coordinates;
     }
+    //Returns the coordinates in a String array
     public String[] geocode(String vcuAlert) throws IOException, ParseException {
         //if(vcuAlert.contains("Conclusion")){
             //call method to remove "Pin" on the map
@@ -46,6 +47,7 @@ public class Geocoder extends AsyncTask<String, Void, String[]> {
         coordinates[1] = json.get("lng").toString();
         return coordinates;
     }
+    //returns the entire API response as a JSON object
     public JSONObject getJsonResponse(URL url, String requestMethod) throws IOException, ParseException {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod(requestMethod);
@@ -58,9 +60,9 @@ public class Geocoder extends AsyncTask<String, Void, String[]> {
 
         JSONObject json = parseLocation(response);
 
-
         return json;
     }
+    //Returns the coordinates from the API response
     public JSONObject parseLocation (String input) throws ParseException {
 
         JSONParser parser = new JSONParser();
@@ -73,6 +75,8 @@ public class Geocoder extends AsyncTask<String, Void, String[]> {
 
         return coordinates;
     }
+    //Removes all spaces and replaces them with + to make it api readable
+    //Adds richmond to the end of the string to provide more accuracy
     public String formatMessage(String s){
         s = s.replaceAll(" ", "+");
         s = s.substring(10);
@@ -85,6 +89,4 @@ public class Geocoder extends AsyncTask<String, Void, String[]> {
         s += "+Richmond";
         return s;
     }
-
-
 }

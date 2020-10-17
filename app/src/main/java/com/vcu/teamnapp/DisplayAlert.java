@@ -22,7 +22,7 @@ import java.util.concurrent.ExecutionException;
 public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-
+    private String vcuAlert = "VCU Alert  326 east broad st";
     private String[] coordinates = new String[2];
 
     @Override
@@ -35,19 +35,10 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        AsyncTask task = new Geocoder().execute("VCU ALERT Robbery CORE MP Campus --Broad/Harrison. Police on scene. Avoid area.");
+        AsyncTask task = new Geocoder().execute(this.vcuAlert);
         try {
             coordinates = (String[]) task.get();
         } catch (InterruptedException e) {
@@ -57,9 +48,12 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
         }
         double lat = Double.parseDouble(coordinates[0]);
         double lon = Double.parseDouble(coordinates[1]);
-        // Add a marker in Sydney and move the camera
+        //place a marker on our map
         LatLng alert = new LatLng(lat, lon);
-        mMap.addMarker(new MarkerOptions().position(alert).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(alert).title("Vcu alert marker"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
+    }
+    public void setVcuAlert(String vcuAlert){
+        this.vcuAlert = vcuAlert;
     }
 }

@@ -1,6 +1,7 @@
 package com.vcu.teamnapp;
 
 import android.os.Bundle;
+import android.widget.SeekBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
@@ -18,6 +19,24 @@ public class SettingsActivity extends AppCompatActivity {
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        SeekBar mySeekBar = findViewById(R.id.seekBar);
+//        mySeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            int progressChanged = 0;
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                progressChanged = progress;
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//                Toast.makeText(SettingsActivity.this, "Distance in miles is: " + progressChanged, Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     @Override

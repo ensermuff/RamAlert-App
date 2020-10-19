@@ -36,6 +36,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.0'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.google.android.material:material:1.3.0-alpha03'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
 
     //JSON parsing library
     testImplementation 'junit:junit:4.12'

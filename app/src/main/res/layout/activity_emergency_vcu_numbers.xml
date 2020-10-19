@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:fontFamily="sans-serif"
-        android:text="CALL FOR YOUR SAFETY"
+        android:text="@string/call_for_your_safety"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="30sp"

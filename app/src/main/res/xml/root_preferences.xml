@@ -19,12 +19,9 @@
                 android:targetPackage="com.vcu.teamnapp" />
         </Preference>
 
-        <SwitchPreferenceCompat
-            app:defaultValue="@string/distance_summary_off"
-            app:key="distance"
-            app:summaryOff="@string/distance_summary_off"
-            app:summaryOn="@string/distance_summary_on"
-            app:title="@string/distance_title" />
+        <Preference
+            android:summary="Choose the distance from 0.2 mile to 1 mile in radius "
+            android:title="@string/distance_title"/>
 
         <SeekBarPreference
             app:key="seekBar"
@@ -35,13 +32,6 @@
             android:progress="0"
             android:title="Title"
             android:layout="@layout/myseekbar"/>
-
-        <SwitchPreferenceCompat
-            app:defaultValue="@string/alertsSaver_summary_off"
-            app:key="alerts"
-            app:summaryOff="@string/alertsSaver_summary_off"
-            app:summaryOn="@string/alertsSaver_summary_on"
-            app:title="@string/Alerts_title" />
 
     </PreferenceCategory>
 
@@ -74,6 +64,4 @@
             app:title="@string/location_title" />
 
     </PreferenceCategory>
-
-
 </PreferenceScreen>

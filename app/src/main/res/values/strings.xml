@@ -58,4 +58,17 @@
     <string name="support">Support</string>
     <string name="title_activity_display_alert">Map</string>
 
+    <!-- Chip group -->
+    <string name="crime_in_progress">Crime in Progress</string>
+    <string name="active_shooter">Active Shooter</string>
+    <string name="suspicious_person">Suspicious Person</string>
+    <string name="medical_emergency">Medical Emergency</string>
+    <string name="civil_disturbance">Civil Disturbance</string>
+    <string name="hazardous_material_release">Hazardous Material Release</string>
+    <string name="tornado">Tornado</string>
+    <string name="fire">Fire</string>
+    <string name="snow_ice_storms">Snow/Ice Storms</string>
+    <string name="earthquake">Earthquake</string>
+    <string name="lightening_and_thunderstorms">Lightening and Thunderstorms</string>
+
 </resources>

@@ -19,7 +19,7 @@
     <!-- Preferences titles-->
     <string name="signature_title">Your signature</string>
     <string name="notifications_title">Notifications</string>
-    <string name="Alerts_title">Automatic alerts removal</string>
+    <string name="Alerts_title">Save alerts</string>
     <string name="notifications_title2">Notification type</string>
     <string name="distance_title">Distance </string>
     <string name="location_title">Location</string>
@@ -27,8 +27,8 @@
     <!-- General -->
     <string name="distance_summary_off">Distance: 0.2 miles in radius</string>
     <string name="distance_summary_on">Distance: 1.0 miles in radius</string>
-    <string name="automaticAlertsRemoval_summary_off">Automatic alerts removal: off</string>
-    <string name="automaticAlertsRemoval_summary_on">Automatic alerts removal: on</string>
+    <string name="alertsSaver_summary_off">Save Alerts: off</string>
+    <string name="alertsSaver_summary_on">Save Alerts: on</string>
 
     <!-- Notifications -->
     <string name="notification_summary_off">Notifications: off</string>
@@ -56,6 +56,8 @@
     <string name="back"><![CDATA[< back]]></string>
     <string name="about_us">About US</string>
     <string name="support">Support</string>
+
+    <!-- Chip group -->
     <string name="crime_in_progress">Crime in Progress</string>
     <string name="active_shooter">Active Shooter</string>
     <string name="suspicious_person">Suspicious Person</string>
@@ -67,5 +69,7 @@
     <string name="snow_ice_storms">Snow/Ice Storms</string>
     <string name="earthquake">Earthquake</string>
     <string name="lightening_and_thunderstorms">Lightening and Thunderstorms</string>
+
+    <string name="title_activity_display_alert">Map</string>
 
 </resources>

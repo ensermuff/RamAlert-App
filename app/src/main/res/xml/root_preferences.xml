@@ -10,29 +10,48 @@
 
         </PreferenceCategory>
 
-        <SwitchPreferenceCompat
-            app:key="distance"
-            app:title="@string/distance_title"
-            app:defaultValue="@string/distance_summary_off"
-            app:summaryOff="@string/distance_summary_off"
-            app:summaryOn="@string/distance_summary_on"/>
-        <SwitchPreferenceCompat
-            app:key="alerts switch"
-            app:title="@string/Alerts_title"
-            app:defaultValue="@string/automaticAlertsRemoval_summary_off"
-            app:summaryOff="@string/automaticAlertsRemoval_summary_off"
-            app:summaryOn="@string/automaticAlertsRemoval_summary_on"/>
+        <Preference
+            android:summary="Click to go to the Emergency VCU Numbers page"
+            android:title="Emergency VCU Phone Numbers">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
+                android:targetClass="com.vcu.teamnapp.EmergencyVCUNumbersActivity"
+                android:targetPackage="com.vcu.teamnapp" />
+        </Preference>
+
+        <Preference
+            android:summary="Choose specific alerts to get notifications for"
+            android:title="Alert Types">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
+                android:targetClass="com.vcu.teamnapp.Chip_group"
+                android:targetPackage="com.vcu.teamnapp" />
+        </Preference>
+
+        <Preference
+            android:summary="Choose the distance from 0.2 mile to 1 mile in radius "
+            android:title="@string/distance_title"/>
+
+        <SeekBarPreference
+            app:key="seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/seekbar"
+            android:max="5"
+            android:progress="0"
+            android:title="Title"
+            android:layout="@layout/myseekbar"/>
 
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/notifications_header">
 
         <SwitchPreferenceCompat
-            app:key="notifications switch"
-            app:title="@string/notifications_title"
             app:defaultValue="@string/notification_summary_off"
+            app:key="notifications switch"
             app:summaryOff="@string/notification_summary_off"
-            app:summaryOn="@string/notification_summary_on"/>
+            app:summaryOn="@string/notification_summary_on"
+            app:title="@string/notifications_title" />
 
         <ListPreference
             android:layout_width="match_parent"
@@ -46,15 +65,12 @@
     </PreferenceCategory>
     <PreferenceCategory app:title="@string/location_header">
 
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
+            app:defaultValue="@string/location_summary_off"
             app:key="location"
-            app:title="@string/location_title"
             app:summaryOff="@string/location_summary_off"
-            app:summaryOn="@string/location_summary_on"/>
-
-    </PreferenceCategory>
-    <PreferenceCategory app:chipgroup = "Types of Crimes:">
-
+            app:summaryOn="@string/location_summary_on"
+            app:title="@string/location_title" />
 
     </PreferenceCategory>
 </PreferenceScreen>

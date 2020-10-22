@@ -27,8 +27,8 @@ public class SMSListener extends BroadcastReceiver {
             }
         }
         if(!messageBody.equals("")) {
-            DisplayAlert displayAlert = new DisplayAlert();
-            displayAlert.setVcuAlert(messageBody);
+            DisplayAlert displayAlert = DisplayAlert.Instance;
+            displayAlert.placeAlert();
             Toast.makeText(context, messageBody, Toast.LENGTH_SHORT).show();
         }
         }

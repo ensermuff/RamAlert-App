@@ -34,8 +34,12 @@ public class Geocoder extends AsyncTask<String, Void, String[]> {
         //if(vcuAlert.contains("Conclusion")){
             //call method to remove "Pin" on the map
         //}
-        vcuAlert = formatMessage(vcuAlert);
-
+        try {
+            vcuAlert = formatMessage(vcuAlert);
+        }
+        catch(NullPointerException e){
+            System.out.println("Null String");
+        }
         final String GEOCODING_RESOURCE = "https://maps.googleapis.com/maps/api/geocode/json?address=" + vcuAlert;
 
         String urlString = GEOCODING_RESOURCE + "&key=" + API_KEY;

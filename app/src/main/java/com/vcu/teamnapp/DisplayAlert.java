@@ -17,8 +17,9 @@ import java.util.concurrent.ExecutionException;
 
 public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback {
 
+    public static DisplayAlert Instance;
     private GoogleMap mMap;
-    private String vcuAlert = "VCU Alert  326 east broad st";
+    private String vcuAlert;
     private String[] coordinates = new String[2];
 
     @Override
@@ -33,8 +34,9 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        AsyncTask task = new Geocoder().execute(this.vcuAlert);
+        Instance = this;
+        setmMap(googleMap);
+        AsyncTask task = new Geocoder().execute(getVcuAlert());
         try {
             coordinates = (String[]) task.get();
         } catch (InterruptedException e) {
@@ -49,7 +51,22 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(alert).title("Vcu alert marker"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
     }
-    public void setVcuAlert(String vcuAlert){
-        this.vcuAlert = vcuAlert;
+    public void setVcuAlert(String alert){
+       vcuAlert = alert;
+    }
+    public String getVcuAlert(){
+        return vcuAlert;
+    }
+    public void setmMap(GoogleMap map){
+        if(map != null){
+            mMap = map;
+        }
+    }
+
+    public GoogleMap getmMap() {
+        return mMap;
+    }
+    public void placeAlert(){
+        onMapReady(mMap);
     }
 }

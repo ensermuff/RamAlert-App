@@ -64,4 +64,5 @@
             app:title="@string/location_title" />
 
     </PreferenceCategory>
+
 </PreferenceScreen>

@@ -82,5 +82,8 @@
     <string name="snow_ice_storms">Snow/Ice Storms</string>
     <string name="earthquake">Earthquake</string>
     <string name="lightening_and_thunderstorms">Lightening and Thunderstorms</string>
+    <string name="vcu_phone_numbers">VCU Phone Numbers</string>
+    <string name="alerts">Alerts</string>
+    <string name="location">Location</string>
 
 </resources>

@@ -7,14 +7,14 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_baseline_smartphone_24"
-            android:title="VCU Phone Numbers" />
+            android:title="@string/vcu_phone_numbers" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@android:drawable/ic_dialog_alert"
-            android:title="Alerts" />
+            android:title="@string/alerts" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@android:drawable/ic_menu_mylocation"
-            android:title="Location" />
+            android:title="@string/location" />
     </group>
 </menu>

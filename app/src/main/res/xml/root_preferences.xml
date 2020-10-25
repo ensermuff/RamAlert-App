@@ -20,18 +20,13 @@
         </Preference>
 
         <Preference
-            android:summary="Choose the distance from 0.2 mile to 1 mile in radius "
-            android:title="@string/distance_title"/>
-
-        <SeekBarPreference
-            app:key="seekBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/seekbar"
-            android:max="5"
-            android:progress="0"
-            android:title="Title"
-            android:layout="@layout/myseekbar"/>
+            android:summary="Choose the distance from 0.2 mile to 1 mile in radius"
+            android:title="@string/distance_title">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
+                android:targetClass="com.vcu.teamnapp.SettingsActivity2"
+                android:targetPackage="com.vcu.teamnapp"/>
+        </Preference>
 
     </PreferenceCategory>
 

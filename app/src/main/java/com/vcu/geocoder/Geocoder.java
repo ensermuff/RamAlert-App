@@ -14,11 +14,14 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class Geocoder extends AsyncTask<String, Void, String[]> {
-
+    public static Geocoder geocoder;
     private static final String API_KEY = "AIzaSyAl-RZHT5WG66Ghz_wcL79U185LaSFJM74";
+    public Geocoder(){
+        setGeocoder();
+    }
     @Override
     public String[] doInBackground(String... strings) {
-        Geocoder geocoder = new Geocoder();
+        setGeocoder();
         String[] coordinates = new String[2];
         try {
             coordinates = geocoder.geocode(strings[0]);
@@ -92,5 +95,8 @@ public class Geocoder extends AsyncTask<String, Void, String[]> {
         }
         s += "+Richmond";
         return s;
+    }
+    public void setGeocoder(){
+        geocoder = this;
     }
 }

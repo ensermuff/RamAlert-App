@@ -24,19 +24,21 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_alert);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        if(vcuAlert != null && mMap != null)
+            mapFragment.getMapAsync(this);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Instance = this;
         setmMap(googleMap);
-        AsyncTask task = new Geocoder().execute(getVcuAlert());
+        Geocoder geoCoderNotCalled = new Geocoder();
+        AsyncTask task = Geocoder.geocoder.execute(vcuAlert);
         try {
             coordinates = (String[]) task.get();
         } catch (InterruptedException e) {
@@ -54,19 +56,15 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
     public void setVcuAlert(String alert){
        vcuAlert = alert;
     }
-    public String getVcuAlert(){
-        return vcuAlert;
-    }
     public void setmMap(GoogleMap map){
         if(map != null){
             mMap = map;
         }
     }
-
-    public GoogleMap getmMap() {
-        return mMap;
-    }
     public void placeAlert(){
-        onMapReady(mMap);
+        if (mMap != null) onMapReady(mMap);
+    }
+    public void setInstance(){
+        Instance = this;
     }
 }

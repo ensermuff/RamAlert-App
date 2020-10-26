@@ -57,5 +57,33 @@
     <string name="about_us">About US</string>
     <string name="support">Support</string>
     <string name="title_activity_display_alert">Map</string>
+    <string name="vcu_police">VCU Police</string>
+    <string name="call_for_your_safety">CALL FOR YOUR SAFETY</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <!-- Chip group -->
+    <string name="crime_in_progress">Crime in Progress</string>
+    <string name="active_shooter">Active Shooter</string>
+    <string name="suspicious_person">Suspicious Person</string>
+    <string name="medical_emergency">Medical Emergency</string>
+    <string name="civil_disturbance">Civil Disturbance</string>
+    <string name="hazardous_material_release">Hazardous Material Release</string>
+    <string name="tornado">Tornado</string>
+    <string name="fire">Fire</string>
+    <string name="snow_ice_storms">Snow/Ice Storms</string>
+    <string name="earthquake">Earthquake</string>
+    <string name="lightening_and_thunderstorms">Lightening and Thunderstorms</string>
+    <string name="vcu_phone_numbers">VCU Phone Numbers</string>
+    <string name="alerts">Alerts</string>
+    <string name="location">Location</string>
 
 </resources>

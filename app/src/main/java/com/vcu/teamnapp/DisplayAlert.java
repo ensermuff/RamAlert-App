@@ -18,8 +18,8 @@ import java.util.concurrent.ExecutionException;
 public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback {
 
     public static DisplayAlert Instance;
-    private GoogleMap mMap;
-    private String vcuAlert;
+    public static GoogleMap mMap;
+    private String vcuAlert = "VCU ALERT Robbery CORE MP Campus --Broad/Harrison. Police on scene. Avoid area";
     private String[] coordinates = new String[2];
 
     @Override
@@ -30,15 +30,15 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        if(vcuAlert != null && mMap != null)
+        if(vcuAlert != null)
             mapFragment.getMapAsync(this);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         setmMap(googleMap);
-        Geocoder geoCoderNotCalled = new Geocoder();
-        AsyncTask task = Geocoder.geocoder.execute(vcuAlert);
+        Geocoder geocoder = new Geocoder();
+        AsyncTask task = geocoder.execute(vcuAlert);
         try {
             coordinates = (String[]) task.get();
         } catch (InterruptedException e) {

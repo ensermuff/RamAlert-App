@@ -35,9 +35,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".DisplayAlert"
-            android:label="@string/title_activity_display_alert"></activity>
+<!--        <activity-->
+<!--            android:name=".DisplayAlert"-->
+<!--            android:label="@string/title_activity_display_alert"></activity>-->
         <activity android:name=".EmergencyVCUNumbersActivity" />
         <activity android:name=".SettingsActivity" />
         <activity

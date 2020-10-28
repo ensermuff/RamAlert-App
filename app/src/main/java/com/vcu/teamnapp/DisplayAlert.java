@@ -10,9 +10,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.vcu.geocoder.Geocoder;
 
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback {
@@ -21,6 +23,7 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
     public static GoogleMap mMap;
     private String vcuAlert = "VCU ALERT Robbery CORE MP Campus --Broad/Harrison. Police on scene. Avoid area";
     private String[] coordinates = new String[2];
+    public static HashMap<LatLng, Marker> markerList = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +53,16 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
         double lon = Double.parseDouble(coordinates[1]);
         //place a marker on our map
         LatLng alert = new LatLng(lat, lon);
-        mMap.addMarker(new MarkerOptions().position(alert).title("Vcu alert marker"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
+        if(markerList.containsKey(alert)){
+            markerList.get(alert).remove();
+            markerList.clear();
+        }
+        else{
+            Marker amarker = mMap.addMarker(new MarkerOptions().position(alert).title("Vcu alert"));
+            markerList.put(alert, amarker);
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
+        }
+
     }
     public void setVcuAlert(String alert){
        vcuAlert = alert;
@@ -66,5 +77,11 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
     }
     public void setInstance(){
         Instance = this;
+    }
+    public void removeMarkerFromList(Marker marker){
+        markerList.remove(marker);
+    }
+    public boolean isEmpty(){
+        return markerList.isEmpty();
     }
 }

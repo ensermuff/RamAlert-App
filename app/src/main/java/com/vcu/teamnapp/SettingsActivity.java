@@ -1,7 +1,6 @@
 package com.vcu.teamnapp;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
@@ -29,6 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            // The xml resource that holds the preferences
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
         }
     }

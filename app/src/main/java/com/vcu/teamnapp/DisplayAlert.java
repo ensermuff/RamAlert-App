@@ -21,7 +21,7 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
 
     public static DisplayAlert Instance;
     public static GoogleMap mMap;
-    private String vcuAlert = "VCU ALERT Robbery CORE MP Campus --Broad/Harrison. Police on scene. Avoid area";
+    private String vcuAlert = "";
     private String[] coordinates = new String[2];
     public static HashMap<LatLng, Marker> markerList = new HashMap<>();
 
@@ -40,27 +40,29 @@ public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         setmMap(googleMap);
-        Geocoder geocoder = new Geocoder();
-        AsyncTask task = geocoder.execute(vcuAlert);
-        try {
-            coordinates = (String[]) task.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        double lat = Double.parseDouble(coordinates[0]);
-        double lon = Double.parseDouble(coordinates[1]);
-        //place a marker on our map
-        LatLng alert = new LatLng(lat, lon);
-        if(markerList.containsKey(alert)){
-            markerList.get(alert).remove();
-            markerList.clear();
-        }
-        else{
-            Marker amarker = mMap.addMarker(new MarkerOptions().position(alert).title("Vcu alert"));
-            markerList.put(alert, amarker);
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
+            if(!vcuAlert.equals("")){
+            Geocoder geocoder = new Geocoder();
+            AsyncTask task = geocoder.execute(vcuAlert);
+            try {
+                coordinates = (String[]) task.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            double lat = Double.parseDouble(coordinates[0]);
+            double lon = Double.parseDouble(coordinates[1]);
+            //place a marker on our map
+            LatLng alert = new LatLng(lat, lon);
+            if(markerList.containsKey(alert)){
+                markerList.get(alert).remove();
+                markerList.clear();
+            }
+            else{
+                Marker amarker = mMap.addMarker(new MarkerOptions().position(alert).title("Vcu alert"));
+                markerList.put(alert, amarker);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
+            }
         }
 
     }

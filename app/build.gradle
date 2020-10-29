@@ -21,6 +21,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            resources {
+                exclude '**/test/*'
+            }
+        }
+    }
 
     packagingOptions{
         exclude 'LICENSE.txt'

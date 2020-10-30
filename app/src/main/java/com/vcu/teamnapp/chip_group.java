@@ -17,7 +17,7 @@ public class chip_group extends AppCompatActivity {
     }
 
     public void goBackToMain(View view) {
-        Intent intent = new Intent(chip_group.this,MainActivity.class);
+        Intent intent = new Intent(chip_group.this,SettingsActivity2.class);
         startActivity(intent);
     }
 }

@@ -6,4 +6,6 @@
     <color name="colorYellow">#ffff00</color>
     <color name="colorWhite">#FFF</color>
     <color name="colorOrange">#ffff8800</color>
+    <color name="Gold">#FFD700</color>
+    <color name="Black">#000000</color>
 </resources>

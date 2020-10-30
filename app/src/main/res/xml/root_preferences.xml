@@ -60,12 +60,20 @@
     </PreferenceCategory>
     <PreferenceCategory app:title="@string/location_header">
 
-        <SwitchPreferenceCompat
-            app:defaultValue="@string/location_summary_off"
-            app:key="location"
-            app:summaryOff="@string/location_summary_off"
-            app:summaryOn="@string/location_summary_on"
-            app:title="@string/location_title" />
+        <Preference
+            android:summary="Reminder: Don't forget to enable location services!"
+            android:title="@string/location_title">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
+                android:targetClass="com.vcu.teamnapp.SettingsActivity2"
+                android:targetPackage="com.vcu.teamnapp"/>
+        </Preference>
+<!--        <SwitchPreferenceCompat-->
+<!--            app:defaultValue="@string/location_summary_off"-->
+<!--            app:key="location"-->
+<!--            app:summaryOff="@string/location_summary_off"-->
+<!--            app:summaryOn="@string/location_summary_on"-->
+<!--            app:title="@string/location_title" />-->
 
     </PreferenceCategory>
 

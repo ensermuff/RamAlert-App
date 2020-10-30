@@ -1,9 +1,9 @@
 //package com.vcu.teamnapp;
 //
-//import androidx.fragment.app.FragmentActivity;
-//
 //import android.os.AsyncTask;
 //import android.os.Bundle;
+//
+//import androidx.fragment.app.FragmentActivity;
 //
 //import com.google.android.gms.maps.CameraUpdateFactory;
 //import com.google.android.gms.maps.GoogleMap;
@@ -13,10 +13,6 @@
 //import com.google.android.gms.maps.model.MarkerOptions;
 //import com.vcu.geocoder.Geocoder;
 //
-//import org.json.JSONException;
-//import org.json.simple.parser.ParseException;
-//
-//import java.io.IOException;
 //import java.util.concurrent.ExecutionException;
 //
 //public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback {

@@ -3,6 +3,7 @@ package com.vcu.teamnapp;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -17,7 +18,7 @@ import com.vcu.geocoder.Geocoder;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
-public class DisplayAlert extends FragmentActivity implements OnMapReadyCallback {
+public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallback {
 
     public static DisplayAlert Instance;
     public static GoogleMap mMap;

@@ -9,13 +9,10 @@ import android.widget.Button;
 
 public class EmergencyVCUNumbersActivity extends AppCompatActivity {
 
-    Button backButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency_vcu_numbers);
-        backButton = findViewById(R.id.backButton);
     }
 
     public void goBackToMain(View view) {

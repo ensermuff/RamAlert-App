@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -16,6 +17,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity2 extends AppCompatActivity {
     private static TextView myTextView;
+    private static Switch mySwitch;
+    private static boolean location_ON;
+    private static boolean location_OFF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,27 +54,36 @@ public class SettingsActivity2 extends AppCompatActivity {
         });
     }
     public void checkLocationServices(){
-        //not complete
+        //check whether the phone's settings enabled location services for the app (code needs to be revised)
         final LocationManager MYMANGER =  (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Switch mySwitch = (Switch) findViewById(R.id.switch1);
-        boolean location_OFF = !mySwitch.isChecked();
-        boolean location_ON = mySwitch.isChecked();
-        if (location_ON && !MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-           alertMessageNoGps();
-        }else if (location_OFF && !MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-            Toast.makeText(SettingsActivity2.this, "Toggle switch in order to enable location services", Toast.LENGTH_SHORT).show();
-        }else if (location_OFF && MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-            Toast.makeText(SettingsActivity2.this, "GPS is already enabled, please toggle switch!", Toast.LENGTH_SHORT).show();
-        }else {
-            // if the gps is enabled and location switch is turned on
-            alertMessageNoGps();
-        }
+        mySwitch = (Switch) findViewById(R.id.switch1);
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                location_OFF = !isChecked;
+                location_ON = isChecked;
+                if (location_OFF){
+                    if (!MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+                        Toast.makeText(SettingsActivity2.this, "Enable location services on your phone's settings!", Toast.LENGTH_LONG).show();
+                    }else {
+                        Toast.makeText(SettingsActivity2.this, "GPS is already enabled, please toggle switch!", Toast.LENGTH_SHORT).show();
+                    }
+                }else if (location_ON){
+                    if (!MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+                        alertMessageNoGps();
+                    }else{
+                        // if the gps is enabled and location switch is turned on
+                        getCurrentLocation();
+                    }
+                }
+            }
+        });
     }
     public void alertMessageNoGps(){
-        //not complete
+        //Alert dialog pops up if the location switch is on for the app but the location services is off for the phone settings
         AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
         myAlert.setTitle("Location")
-                .setMessage("GPS is disabled, do you want to enable it?")
+                .setMessage("GPS is disabled on your phone's settings, do you want to enable it?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -80,9 +93,15 @@ public class SettingsActivity2 extends AppCompatActivity {
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();;
+                        mySwitch.setChecked(location_OFF);
+                        dialog.cancel();
                     }
                 });
-        myAlert.show();
+        myAlert.create().show();
+        getCurrentLocation();
+    }
+    public void getCurrentLocation(){
+        // getting location
+
     }
 }

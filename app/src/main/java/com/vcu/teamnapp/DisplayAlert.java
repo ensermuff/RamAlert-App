@@ -81,11 +81,5 @@ public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallbac
     public void setInstance(){
         Instance = this;
     }
-    public void removeMarkerFromList(Marker marker){
-        markerList.remove(marker);
-    }
-    public boolean isEmpty(){
-        return markerList.isEmpty();
-    }
 }
 

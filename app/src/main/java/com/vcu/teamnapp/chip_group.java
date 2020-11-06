@@ -13,7 +13,6 @@ public class chip_group extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chip_group);
-        backButton = findViewById(R.id.backButton);
     }
 
     public void goBackToMain(View view) {

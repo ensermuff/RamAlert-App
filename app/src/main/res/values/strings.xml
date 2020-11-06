@@ -59,7 +59,6 @@
     
     <string name="title_activity_display_alert">Map</string>
     <string name="vcu_police">VCU Police</string>
-    <string name="call_for_your_safety">CALL FOR YOUR SAFETY</string>
     <string name="title_activity_drawer">DrawerActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -86,4 +85,7 @@
     <string name="vcu_phone_numbers">VCU Phone Numbers</string>
     <string name="alerts">Alerts</string>
     <string name="location">Location</string>
+    <string name="call_for_your_safety">CALL FOR YOUR SAFETY</string>
+    <string name="_804_828_7233">804-828-7233</string>
+
 </resources>

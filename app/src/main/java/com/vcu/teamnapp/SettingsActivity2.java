@@ -19,14 +19,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity2 extends AppCompatActivity {
-    private static SeekBar mySeekBar;
     private static TextView myTextView;
     private static Switch mySwitch;
     private static boolean location_ON;
     private static boolean location_OFF;
     private LocationManager locationManager;
     private LocationListener locationListener;
-
 
 
     @Override
@@ -60,7 +58,7 @@ public class SettingsActivity2 extends AppCompatActivity {
     }
 
     public void seekBar() {
-        mySeekBar = (SeekBar) findViewById(R.id.seekBar);
+        SeekBar mySeekBar = (SeekBar) findViewById(R.id.seekBar);
         myTextView = (TextView) findViewById(R.id.myTextView);
         myTextView.setText("Distance : " + mySeekBar.getProgress() +  " mile radius");
 
@@ -83,31 +81,28 @@ public class SettingsActivity2 extends AppCompatActivity {
             }
         });
     }
-    public void checkLocationServices(LocationManager MYMANGER){
-        //check whether the phone's settings enabled location services for the app (code needs to be revised)
+    public void checkLocationServices(final LocationManager MYMANGER){
+        //check whether the phone's settings enabled location services for the app
         mySwitch = (Switch) findViewById(R.id.switch1);
         //Save switch state in shared preferences
-        SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
-        mySwitchChanges(MYMANGER, sharedPreferences);
-    }
-
-    private void mySwitchChanges(final LocationManager MYMANGER, SharedPreferences mySharedPreferences) {
+        SharedPreferences mySharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
         mySwitch.setChecked(mySharedPreferences.getBoolean("value", true));
         mySwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 location_OFF = !mySwitch.isChecked();
                 location_ON = mySwitch.isChecked();
-                if (location_ON){
+                if (location_ON) {
                     //When the switch is checked
                     SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
                     editor.putBoolean("value", true);
                     editor.apply();
                     mySwitch.setChecked(true);
                     if (!MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-                        Toast.makeText(SettingsActivity2.this, "Enable location services on your phone's settings!", Toast.LENGTH_LONG).show();
-                    }else {
-                        Toast.makeText(SettingsActivity2.this, "GPS is already enabled, please toggle switch!", Toast.LENGTH_SHORT).show();
+                        alertMessageNoGps();
+                    }else{
+                        // if the gps is enabled and location switch is turned on
+                        getCurrentLocation();
                     }
                 }else if (location_OFF) {
                     //When the switch isn't checked
@@ -115,17 +110,22 @@ public class SettingsActivity2 extends AppCompatActivity {
                     editor.putBoolean("value", false);
                     editor.apply();
                     mySwitch.setChecked(false);
-                    if (!MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-                        alertMessageNoGps();
-                    }else{
-                        // if the gps is enabled and location switch is turned on
-                        getCurrentLocation();
+                    if (!MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                        Toast.makeText(SettingsActivity2.this, "Enable location services on your phone's settings!", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(SettingsActivity2.this, "GPS is already enabled, please toggle switch!", Toast.LENGTH_SHORT).show();
+                    }
+                    if (location_OFF) {
+                        if (!MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                            Toast.makeText(SettingsActivity2.this, "Enable location services on your phone's settings!", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(SettingsActivity2.this, "GPS is already enabled, please toggle switch!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }
         });
     }
-
     public void alertMessageNoGps(){
         //Alert dialog pops up if the location switch is on for the app but the location services is off for the phone settings
         AlertDialog.Builder myAlert = new AlertDialog.Builder(this);

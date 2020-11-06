@@ -1,10 +1,14 @@
 package com.vcu.teamnapp;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,6 +40,19 @@ public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         if(vcuAlert != null)
             mapFragment.getMapAsync(this);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+    public void openSettingsActivity(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml
+        Intent myIntent = new Intent(this, SettingsActivity.class);
+        startActivity(myIntent);
     }
 
     @Override

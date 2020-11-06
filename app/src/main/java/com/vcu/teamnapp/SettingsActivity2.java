@@ -3,10 +3,11 @@ package com.vcu.teamnapp;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.widget.CompoundButton;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -16,10 +17,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity2 extends AppCompatActivity {
+    private static SeekBar mySeekBar;
     private static TextView myTextView;
     private static Switch mySwitch;
     private static boolean location_ON;
     private static boolean location_OFF;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,7 @@ public class SettingsActivity2 extends AppCompatActivity {
     }
 
     public void seekBar() {
-        SeekBar mySeekBar = (SeekBar) findViewById(R.id.seekBar);
+        mySeekBar = (SeekBar) findViewById(R.id.seekBar);
         myTextView = (TextView) findViewById(R.id.myTextView);
         myTextView.setText("Distance : " + mySeekBar.getProgress() +  " mile radius");
 
@@ -57,18 +60,35 @@ public class SettingsActivity2 extends AppCompatActivity {
         //check whether the phone's settings enabled location services for the app (code needs to be revised)
         final LocationManager MYMANGER =  (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         mySwitch = (Switch) findViewById(R.id.switch1);
-        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        //Save switch state in shared preferences
+        SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
+        mySwitchChanges(MYMANGER, sharedPreferences);
+    }
+
+    private void mySwitchChanges(final LocationManager MYMANGER, SharedPreferences mySharedPreferences) {
+        mySwitch.setChecked(mySharedPreferences.getBoolean("value", true));
+        mySwitch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                location_OFF = !isChecked;
-                location_ON = isChecked;
-                if (location_OFF){
+            public void onClick(View v) {
+                location_OFF = !mySwitch.isChecked();
+                location_ON = mySwitch.isChecked();
+                if (location_ON){
+                    //When the switch is checked
+                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+                    editor.putBoolean("value", true);
+                    editor.apply();
+                    mySwitch.setChecked(true);
                     if (!MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)){
                         Toast.makeText(SettingsActivity2.this, "Enable location services on your phone's settings!", Toast.LENGTH_LONG).show();
                     }else {
                         Toast.makeText(SettingsActivity2.this, "GPS is already enabled, please toggle switch!", Toast.LENGTH_SHORT).show();
                     }
-                }else if (location_ON){
+                }else if (location_OFF) {
+                    //When the switch isn't checked
+                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+                    editor.putBoolean("value", false);
+                    editor.apply();
+                    mySwitch.setChecked(false);
                     if (!MYMANGER.isProviderEnabled(LocationManager.GPS_PROVIDER)){
                         alertMessageNoGps();
                     }else{
@@ -79,6 +99,7 @@ public class SettingsActivity2 extends AppCompatActivity {
             }
         });
     }
+
     public void alertMessageNoGps(){
         //Alert dialog pops up if the location switch is on for the app but the location services is off for the phone settings
         AlertDialog.Builder myAlert = new AlertDialog.Builder(this);

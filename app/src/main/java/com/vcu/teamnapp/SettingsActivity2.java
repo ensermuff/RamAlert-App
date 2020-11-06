@@ -1,9 +1,10 @@
 package com.vcu.teamnapp;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -13,6 +14,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,14 +24,39 @@ public class SettingsActivity2 extends AppCompatActivity {
     private static Switch mySwitch;
     private static boolean location_ON;
     private static boolean location_OFF;
+    private LocationManager locationManager;
+    private LocationListener locationListener;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings2);
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(@NonNull Location location) {
+
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(@NonNull String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(@NonNull String provider) {
+
+            }
+        };
         seekBar();
-        checkLocationServices();
+        checkLocationServices(locationManager);
     }
 
     public void seekBar() {
@@ -56,9 +83,8 @@ public class SettingsActivity2 extends AppCompatActivity {
             }
         });
     }
-    public void checkLocationServices(){
+    public void checkLocationServices(LocationManager MYMANGER){
         //check whether the phone's settings enabled location services for the app (code needs to be revised)
-        final LocationManager MYMANGER =  (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         mySwitch = (Switch) findViewById(R.id.switch1);
         //Save switch state in shared preferences
         SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);

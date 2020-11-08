@@ -18,13 +18,12 @@
                 android:targetClass="com.vcu.teamnapp.EmergencyVCUNumbersActivity"
                 android:targetPackage="com.vcu.teamnapp" />
         </Preference>
-
         <Preference
             android:summary="Choose specific alerts to get notifications for"
             android:title="Alert Types">
             <intent
                 android:action="android.intent.action.PICK_ACTIVITY"
-                android:targetClass="com.vcu.teamnapp.SettingsActivity2"
+                android:targetClass="com.vcu.teamnapp.ChipGroup"
                 android:targetPackage="com.vcu.teamnapp" />
         </Preference>
 

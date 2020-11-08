@@ -56,7 +56,7 @@
     <string name="back"><![CDATA[< back]]></string>
     <string name="about_us">About US</string>
     <string name="support">Support</string>
-    
+
     <string name="title_activity_display_alert">Map</string>
     <string name="vcu_police">VCU Police</string>
     <string name="call_for_your_safety">CALL FOR YOUR SAFETY</string>
@@ -86,5 +86,6 @@
     <string name="vcu_phone_numbers">VCU Phone Numbers</string>
     <string name="alerts">Alerts</string>
     <string name="location">Location</string>
+    <string name="title_activity_chip_group">ChipGroup</string>
 
 </resources>

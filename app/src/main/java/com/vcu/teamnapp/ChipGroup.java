@@ -1,24 +1,26 @@
 package com.vcu.teamnapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-public class chip_group extends AppCompatActivity {
+
+public class ChipGroup extends AppCompatActivity {
     Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chip_group);
+        setContentView(R.layout.activity_chip_group);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         backButton = findViewById(R.id.backButton);
     }
 
     public void goBackToMain(View view) {
-        Intent intent = new Intent(chip_group.this,SettingsActivity2.class);
+        Intent intent = new Intent(ChipGroup.this,SettingsActivity.class);
         startActivity(intent);
     }
 }
-

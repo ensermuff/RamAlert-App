@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:theme="@style/ShapeAppearance.MaterialComponents.SmallComponent"
     android:layout_height="match_parent"
-    tools:context=".chip_group">
+    tools:context=".ChipGroup">
 
 
 

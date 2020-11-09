@@ -1,6 +1,6 @@
 //package com.vcu.teamnapp;
 //
-//import com.vcu.geocoder.Geocoder;
+//import com.vcu.teamnapp.Geocoder;
 //
 //
 //import org.json.JSONException;

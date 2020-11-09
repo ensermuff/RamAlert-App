@@ -1,4 +1,4 @@
-package com.vcu.teamnapp;
+package com.vcu.RamAlerts;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +16,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.vcu.geocoder.Geocoder;
 
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;

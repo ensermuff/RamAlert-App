@@ -1,4 +1,4 @@
-package com.vcu.teamnapp;
+package com.vcu.RamAlerts;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;

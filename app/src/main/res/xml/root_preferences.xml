@@ -19,7 +19,15 @@
                 android:targetPackage="com.vcu.teamnapp" />
         </Preference>
         <Preference
-            android:summary="Choose specific alerts to get notifications for"
+            android:summary="Choose alerts to display"
+            android:title="Alert Types">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
+                android:targetClass="com.vcu.teamnapp.CrimeChipGroup"
+                android:targetPackage="com.vcu.teamnapp" />
+        </Preference>
+        <Preference
+            android:summary="just text view without chip group"
             android:title="Alert Types">
             <intent
                 android:action="android.intent.action.PICK_ACTIVITY"

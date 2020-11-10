@@ -21,7 +21,7 @@ public class SecondFragment extends Fragment {
     )
 
     {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragmentza
 
         return inflater.inflate(R.layout.fragment_second, container, false);
     }

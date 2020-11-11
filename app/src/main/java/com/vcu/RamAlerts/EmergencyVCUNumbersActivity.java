@@ -1,11 +1,12 @@
 package com.vcu.teamnapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.vcu.RamAlerts.R;
 
 public class EmergencyVCUNumbersActivity extends AppCompatActivity {
 
@@ -16,7 +17,7 @@ public class EmergencyVCUNumbersActivity extends AppCompatActivity {
     }
 
     public void goBackToMain(View view) {
-        Intent intent = new Intent(EmergencyVCUNumbersActivity.this,MainActivity.class);
+        Intent intent = new Intent(EmergencyVCUNumbersActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

@@ -3,12 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:theme="@style/ShapeAppearance.MaterialComponents.SmallComponent"
     android:layout_height="match_parent"
-    tools:context=".chip_group">
-
-
-
+    android:theme="@style/ShapeAppearance.MaterialComponents.SmallComponent"
+    tools:context=".ChipGroup">
 
     <com.google.android.material.chip.ChipGroup
         android:layout_width="370dp"
@@ -92,5 +89,4 @@
             android:text="@string/crime_in_progress" />
     </com.google.android.material.chip.ChipGroup>
     />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

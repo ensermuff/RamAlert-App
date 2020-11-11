@@ -3,59 +3,62 @@ package com.vcu.RamAlerts;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+
+import com.google.android.material.navigation.NavigationView;
 
 //Main Activity class
 public class MainActivity extends AppCompatActivity{
-    Button buttonNotification;
-    TextView myTextView;
-
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle t;
+    private NavigationView nv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        dl = (DrawerLayout)findViewById(R.id.drawer_layout);
+        t = new ActionBarDrawerToggle(this, dl,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        dl.addDrawerListener(t);
+        t.syncState();
+        Button fab = findViewById(R.id.menuId);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
+            }
+        });
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.activity_main_drawer, menu);
         return true;
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+    public void onClickHandler(MenuItem item){
         int id = item.getItemId();
-
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent myIntent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(myIntent);
-            return true;
-        } else {
-            return super.onOptionsItemSelected(item);
-
-            //Comment for 9/21 class
+        Intent intent;
+        if(id == R.id.action_settings){
+            intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        }
+        else if(id == R.id.location_settings){
+            intent = new Intent(this, SettingsActivity2.class);
+            startActivity(intent);
+        }
+        else if(id == R.id.closeMenu){
+            DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         }
     }
+
 }

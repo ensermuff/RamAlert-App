@@ -25,7 +25,7 @@ public class SMSListener2 extends BroadcastReceiver {
             }
         }
         if(!messageBody.equals("")) {
-            DisplayAlert displayAlert = new DisplayAlert();
+            DisplayAlertFragment displayAlert = new DisplayAlertFragment();
 //            if(messageBody.contains("Conclusion")){
 //                displayAlert.removeMarkerFromList();
 //            }

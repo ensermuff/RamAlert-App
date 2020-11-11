@@ -31,6 +31,10 @@
             android:title="Alert Types">
             <intent
                 android:action="android.intent.action.PICK_ACTIVITY"
+            android:summary="Choose alerts:"
+            android:title="Alert Types">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
                 android:targetClass="com.vcu.teamnapp.ChipGroup"
                 android:targetPackage="com.vcu.teamnapp" />
         </Preference>

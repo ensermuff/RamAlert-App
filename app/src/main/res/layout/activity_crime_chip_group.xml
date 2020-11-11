@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:theme="@style/ShapeAppearance.MaterialComponents.SmallComponent"
     tools:context=".CrimeChipGroup">
+    tools:context=".ChipGroup">
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup"
@@ -103,3 +104,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> master:app/src/main/res/layout/activity_chip_group.xml

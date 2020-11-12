@@ -40,13 +40,15 @@ public class SettingsActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings2);
 
-        myTextView2 = (TextView) findViewById(R.id.textView3);
-        myTextView3 = (TextView) findViewById(R.id.textView4);
+        myTextView2 = findViewById(R.id.textView3);
+        myTextView3 = findViewById(R.id.textView4);
 
         seekBar();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         checkLocationServices(locationManager);
         locationListener();
+
+        updateLocation();
     }
 
     private void locationListener() {
@@ -139,7 +141,7 @@ public class SettingsActivity2 extends AppCompatActivity {
     }
     public void checkLocationServices(final LocationManager locationManager){
         //check whether the phone's settings enabled location services for the app
-        mySwitch = (Switch) findViewById(R.id.switch1);
+        mySwitch = findViewById(R.id.switch1);
         //Save switch state in shared preferences
         SharedPreferences mySharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
         mySwitch.setChecked(mySharedPreferences.getBoolean("value", true));
@@ -170,6 +172,8 @@ public class SettingsActivity2 extends AppCompatActivity {
                         Toast.makeText(SettingsActivity2.this, "Enable location services on your phone's settings!", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(SettingsActivity2.this, "GPS is already enabled, please toggle switch!", Toast.LENGTH_SHORT).show();
+                        myTextView2.setText("Latitude: ");
+                        myTextView3.setText("Longitude: ");
                     }
                 }
             }

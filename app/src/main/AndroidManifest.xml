@@ -17,10 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
       
-        <activity android:name=".SettingsActivity2"></activity>
+        <activity android:name="com.vcu.teamnapp.SettingsActivity2"></activity>
       
         <activity
-            android:name=".DrawerActivity"
+            android:name="com.vcu.teamnapp.DrawerActivity"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <!--
@@ -36,7 +36,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".DisplayAlert"
+            android:name="com.vcu.teamnapp.DisplayAlert"
             android:label="@string/title_activity_display_alert"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -44,10 +44,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EmergencyVCUNumbersActivity" />
-        <activity android:name=".SettingsActivity" />
+        <activity android:name="com.vcu.teamnapp.EmergencyVCUNumbersActivity" />
+        <activity android:name="com.vcu.teamnapp.SettingsActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.vcu.teamnapp.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

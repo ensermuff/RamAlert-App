@@ -33,6 +33,7 @@ public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallbac
         setInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_alert);
+        setContentView(R.layout.nav_activity_main);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

@@ -13,7 +13,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.vcu.RamAlerts.R;
 
 //Main Activity class
 public class MainActivity extends AppCompatActivity {

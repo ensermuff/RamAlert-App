@@ -6,8 +6,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.vcu.RamAlerts.R;
-
 public class EmergencyVCUNumbersActivity extends AppCompatActivity {
 
     @Override

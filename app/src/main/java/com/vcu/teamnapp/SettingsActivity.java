@@ -4,8 +4,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
-import com.vcu.RamAlerts.R;
-
 public class SettingsActivity extends AppCompatActivity {
 
     @Override

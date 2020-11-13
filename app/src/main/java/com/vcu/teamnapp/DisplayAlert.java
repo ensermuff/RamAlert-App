@@ -16,7 +16,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.vcu.RamAlerts.R;
 
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
@@ -50,7 +49,7 @@ public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallbac
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml
-        Intent myIntent = new Intent(this, SettingsActivity.class);
+        Intent myIntent = new Intent(this, com.vcu.teamnapp.SettingsActivity.class);
         startActivity(myIntent);
     }
 

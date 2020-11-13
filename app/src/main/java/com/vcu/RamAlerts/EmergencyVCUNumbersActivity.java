@@ -1,9 +1,8 @@
-package com.vcu.teamnapp;
+package com.vcu.RamAlerts;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EmergencyVCUNumbersActivity extends AppCompatActivity {

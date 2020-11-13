@@ -1,4 +1,4 @@
-package com.vcu.teamnapp.ui.home;
+package com.vcu.RamAlerts.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

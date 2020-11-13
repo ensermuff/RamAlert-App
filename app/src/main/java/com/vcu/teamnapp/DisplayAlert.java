@@ -1,4 +1,4 @@
-package com.vcu.RamAlerts;
+package com.vcu.teamnapp;
 
 import android.content.Intent;
 import android.os.AsyncTask;

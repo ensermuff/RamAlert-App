@@ -1,4 +1,4 @@
-package com.vcu.teamnapp;
+package com.vcu.RamAlerts;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -49,7 +49,7 @@ public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallbac
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml
-        Intent myIntent = new Intent(this, com.vcu.teamnapp.SettingsActivity.class);
+        Intent myIntent = new Intent(this, SettingsActivity.class);
         startActivity(myIntent);
     }
 

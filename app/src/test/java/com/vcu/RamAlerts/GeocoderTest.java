@@ -1,6 +1,6 @@
-//package com.vcu.teamnapp;
+//package com.vcu.RamAlerts;
 //
-//import com.vcu.teamnapp.Geocoder;
+//import com.vcu.RamAlerts.Geocoder;
 //
 //
 //import org.json.JSONException;

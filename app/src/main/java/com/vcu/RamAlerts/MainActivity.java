@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity{
         t = new ActionBarDrawerToggle(this, dl,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         dl.addDrawerListener(t);
         t.syncState();
-        Button fab = findViewById(R.id.menuId);
+        ImageButton fab = findViewById(R.id.menuId);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,18 +48,30 @@ public class MainActivity extends AppCompatActivity{
     public void onClickHandler(MenuItem item){
         int id = item.getItemId();
         Intent intent;
-        if(id == R.id.action_settings){
-            intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
+        switch(id){
+            case R.id.action_settings:
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.location_settings:
+                intent = new Intent(this, SettingsActivity2.class);
+                startActivity(intent);
+                break;
+
+            case R.id.closeMenu:
+            case R.id.alerts_list:
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+                break;
+
+            case R.id.vcu_phone_numbers:
+                intent = new Intent(this, EmergencyVCUNumbersActivity.class);
+                startActivity(intent);
+                break;
+
+
         }
-        else if(id == R.id.location_settings){
-            intent = new Intent(this, SettingsActivity2.class);
-            startActivity(intent);
         }
-        else if(id == R.id.closeMenu){
-            DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        }
-    }
 
 }

@@ -40,6 +40,7 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        setInstance();
         return inflater.inflate(R.layout.fragment_display_alert, container, false);
     }
     @Override

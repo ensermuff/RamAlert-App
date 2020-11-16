@@ -6,7 +6,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 public class EmergencyVCUNumbersActivity extends AppCompatActivity {
 
@@ -16,10 +15,6 @@ public class EmergencyVCUNumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_emergency_vcu_numbers);
     }
 
-    public void goBackToMain(View view) {
-        Intent intent = new Intent(EmergencyVCUNumbersActivity.this,MainActivity.class);
-        startActivity(intent);
-    }
     public void onClickHandler(MenuItem item){
         int id = item.getItemId();
         Intent intent;

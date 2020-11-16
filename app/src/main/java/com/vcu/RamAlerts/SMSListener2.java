@@ -3,11 +3,12 @@ package com.vcu.RamAlerts;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+
 import android.provider.Telephony;
 import android.telephony.SmsMessage;
 import android.widget.Toast;
 
-public class SMSListener extends BroadcastReceiver {
+public class SMSListener2 extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Toast.makeText(context, "Message received!", Toast.LENGTH_SHORT).show();
@@ -22,10 +23,9 @@ public class SMSListener extends BroadcastReceiver {
                 else
                     break;
             }
-            Toast.makeText(context, messageBody, Toast.LENGTH_SHORT).show();
         }
         if(!messageBody.equals("")) {
-            DisplayAlert displayAlert = new DisplayAlert();
+            DisplayAlertFragment displayAlert = new DisplayAlertFragment();
 //            if(messageBody.contains("Conclusion")){
 //                displayAlert.removeMarkerFromList();
 //            }

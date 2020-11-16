@@ -55,8 +55,8 @@ public class SettingsActivity2 extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(@NonNull Location location) {
-                latitude = location.getLatitude();
-                longitude = location.getLongitude();
+                latitude = getLatitude(location);
+                longitude = getLongitude(location);
 
                 //called whenever location is updated
                 myTextView2.setText("Latitude: " + latitude);
@@ -91,6 +91,14 @@ public class SettingsActivity2 extends AppCompatActivity {
         }else{
             updateLocation();
         }
+    }
+
+    private double getLatitude(Location location) {
+        return location.getLatitude();
+    }
+
+    private double getLongitude(Location location) {
+        return location.getLongitude();
     }
 
     @Override

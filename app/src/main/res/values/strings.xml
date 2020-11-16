@@ -89,5 +89,7 @@
     <string name="page_title">page_title</string>
     <string name="more">More</string>
     <string name="content_description_more">This is where we will place our \"more\" section</string>
+    <string name="button">Button</string>
+    <string name="close_menu">Close Menu</string>
 
 </resources>

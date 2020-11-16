@@ -1,10 +1,14 @@
 package com.vcu.RamAlerts;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,27 +21,28 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
-public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallback {
 
-    public static DisplayAlert Instance;
+public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback {
+    public static DisplayAlertFragment Instance;
     public static GoogleMap mMap;
     private String vcuAlert = "";
     private String[] coordinates = new String[2];
     public static HashMap<LatLng, Marker> markerList = new HashMap<>();
+    private OnMapReadyCallback callback = new OnMapReadyCallback() {
+        @Override
+        public void onMapReady(GoogleMap googleMap) {
+            DisplayAlertFragment.this.onMapReady(googleMap);
+        }
+    };
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         setInstance();
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_alert);
-        setContentView(R.layout.nav_activity_main);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        if(vcuAlert != null)
-            mapFragment.getMapAsync(this);
+        return inflater.inflate(R.layout.fragment_display_alert, container, false);
     }
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         setmMap(googleMap);
@@ -65,8 +70,18 @@ public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallbac
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
             }
         }
-
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(callback);
+        }
+    }
+
     public void setVcuAlert(String alert){
         vcuAlert = alert;
     }
@@ -81,5 +96,5 @@ public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallbac
     public void setInstance(){
         Instance = this;
     }
-}
 
+}

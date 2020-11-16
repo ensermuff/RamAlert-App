@@ -85,10 +85,14 @@
     <string name="alerts">Alerts</string>
     <string name="location">Location</string>
     <string name="call_for_your_safety">CALL FOR YOUR SAFETY</string>
-    <string name="_804_828_7233">804-828-7233</string>
     <string name="page_title">page_title</string>
     <string name="more">More</string>
     <string name="content_description_more">This is where we will place our \"more\" section</string>
+
     <string name="resources_for_your_safety">RESOURCES FOR YOUR SAFETY</string>
+
+    <string name="button">Button</string>
+    <string name="close_menu">Close Menu</string>
+    <string name="_804_828_7233">(804) 828-7233</string>
 
 </resources>

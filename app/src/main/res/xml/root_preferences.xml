@@ -15,8 +15,8 @@
             android:title="Emergency VCU Phone Numbers">
             <intent
                 android:action="android.intent.action.PICK_ACTIVITY"
-                android:targetClass="com.vcu.teamnapp.EmergencyVCUNumbersActivity"
-                android:targetPackage="com.vcu.teamnapp" />
+                android:targetClass="com.vcu.RamAlerts.EmergencyVCUNumbersActivity"
+                android:targetPackage="com.vcu.RamAlerts" />
         </Preference>
 
         <Preference
@@ -24,8 +24,8 @@
             android:title="@string/distance_title">
             <intent
                 android:action="android.intent.action.PICK_ACTIVITY"
-                android:targetClass="com.vcu.teamnapp.SettingsActivity2"
-                android:targetPackage="com.vcu.teamnapp"/>
+                android:targetClass="com.vcu.RamAlerts.SettingsActivity2"
+                android:targetPackage="com.vcu.RamAlerts"/>
         </Preference>
 
     </PreferenceCategory>
@@ -56,8 +56,8 @@
             android:title="@string/location_title">
             <intent
                 android:action="android.intent.action.PICK_ACTIVITY"
-                android:targetClass="com.vcu.teamnapp.SettingsActivity2"
-                android:targetPackage="com.vcu.teamnapp"/>
+                android:targetClass="com.vcu.RamAlerts.SettingsActivity2"
+                android:targetPackage="com.vcu.RamAlerts"/>
         </Preference>
 <!--        <SwitchPreferenceCompat-->
 <!--            app:defaultValue="@string/location_summary_off"-->

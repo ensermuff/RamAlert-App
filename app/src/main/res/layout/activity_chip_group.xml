@@ -7,22 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ChipGroup">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="167dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="350dp"
-        android:layout_marginBottom="652dp"
-        android:text="Choose Alerts to Display:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup"
         android:layout_width="352dp"
@@ -33,10 +17,10 @@
         android:layout_marginBottom="388dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.888">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip4"
@@ -72,37 +56,37 @@
             android:id="@+id/chip9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hazardous Material Release" />
+            android:text="@string/hazardous_material_release" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Civil Disturbance" />
+            android:text="@string/civil_disturbance" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Medical Emergency" />
+            android:text="@string/medical_emergency" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Suspicious Person" />
+            android:text="@string/suspicious_person" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Active Shooter" />
+            android:text="@string/active_shooter" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Crime in Progress" />
+            android:text="@string/crime_in_progress" />
     </com.google.android.material.chip.ChipGroup>
 
     <TextView
@@ -113,7 +97,7 @@
         android:layout_marginTop="27dp"
         android:layout_marginEnd="301dp"
         android:layout_marginBottom="7dp"
-        android:text="Alert Types:"
+        android:text="@string/alert_types"
         app:layout_constraintBottom_toTopOf="@+id/chipGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

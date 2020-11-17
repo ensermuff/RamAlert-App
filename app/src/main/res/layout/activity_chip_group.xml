@@ -22,71 +22,84 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.888">
 
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/snow_ice_storms"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
+
         <com.google.android.material.chip.Chip
             android:id="@+id/chip4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Lightening and Thunderstorms" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Earthquake" />
+            android:text="@string/fire"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Snow/Ice Storms" />
+            android:text="@string/hazardous_material_release"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
+
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Fire" />
+            android:text="@string/civil_disturbance"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Tornado" />
+            android:text="@string/medical_emergency"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hazardous_material_release" />
+            android:text="@string/suspicious_person"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/civil_disturbance" />
+            android:text="@string/active_shooter"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/medical_emergency" />
+            android:text="@string/crime_in_progress"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tornado"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/suspicious_person" />
+            android:text="@string/earthquake"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/active_shooter" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/crime_in_progress" />
+            android:text="@string/lightening_and_thunderstorms"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
     </com.google.android.material.chip.ChipGroup>
 
     <TextView

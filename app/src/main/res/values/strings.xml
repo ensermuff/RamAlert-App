@@ -91,5 +91,7 @@
     <string name="content_description_more">This is where we will place our \"more\" section</string>
     <string name="button">Button</string>
     <string name="close_menu">Close Menu</string>
+    <string name="rodneyram_vcu_edu">rodneyram@vcu.edu</string>
+    <string name="vcu_ram_alerts">VCU Ram Alerts</string>
 
 </resources>

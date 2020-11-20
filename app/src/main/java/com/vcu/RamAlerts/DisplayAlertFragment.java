@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,8 +14,9 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -23,6 +26,7 @@ import java.util.concurrent.ExecutionException;
 
 
 public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback {
+    MapView mMapView;
     public static DisplayAlertFragment Instance;
     public static GoogleMap mMap;
     private String vcuAlert = "";
@@ -41,7 +45,13 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         setInstance();
-        return inflater.inflate(R.layout.fragment_display_alert, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_display_alert, container, false);
+        mMapView = (MapView) rootView.findViewById(R.id.mapView);
+        mMapView.onCreate(savedInstanceState);
+
+        mMapView.onResume();
+        mMapView.getMapAsync(this);
+        return rootView;
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -65,23 +75,32 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
                 markerList.clear();
             }
             else{
-                Marker amarker = mMap.addMarker(new MarkerOptions().position(alert).title("Vcu alert"));
+                MarkerOptions markerOptions = new MarkerOptions().position(alert).title("Vcu alert");
+                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.rsz_1alert));
+                Marker amarker = mMap.addMarker(markerOptions);
                 markerList.put(alert, amarker);
+                moveToCurrentLocation(alert);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
             }
         }
     }
+    private void moveToCurrentLocation(LatLng currentLocation)
+    {
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation,15));
+        // Zoom in, animating the camera.
+        mMap.animateCamera(CameraUpdateFactory.zoomIn());
+        // Zoom out to zoom level 10, animating with a duration of 2 seconds.
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        SupportMapFragment mapFragment =
-                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(callback);
-        }
+
     }
+    public Bitmap bitmapSizeByScale(Bitmap bitmapIn, float scall_zero_to_one_f) {
 
+        Bitmap bitmapOut = Bitmap.createScaledBitmap(bitmapIn,
+                Math.round(bitmapIn.getWidth() * scall_zero_to_one_f),
+                Math.round(bitmapIn.getHeight() * scall_zero_to_one_f), false);
+        return bitmapOut;
+    }
     public void setVcuAlert(String alert){
         vcuAlert = alert;
     }

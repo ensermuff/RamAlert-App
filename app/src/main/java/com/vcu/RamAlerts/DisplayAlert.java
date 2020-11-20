@@ -66,7 +66,7 @@ public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallbac
         }
 
     }
-    public void setVcuAlert(String alert){
+    public void setVcuAlertDeprecated(String alert){
         vcuAlert = alert;
     }
     public void setmMap(GoogleMap map){
@@ -74,7 +74,7 @@ public class DisplayAlert extends AppCompatActivity implements OnMapReadyCallbac
             mMap = map;
         }
     }
-    public void placeAlert(){
+    public void placeAlertDeprecated(){
         if (mMap != null) onMapReady(mMap);
     }
     public void setInstance(){

@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 
 public class SettingsActivity2 extends AppCompatActivity {
 
@@ -28,12 +29,15 @@ public class SettingsActivity2 extends AppCompatActivity {
     private static TextView myTextView2;
     private static TextView myTextView3;
     private static Switch mySwitch;
-    private static boolean location_ON;
-    private static boolean location_OFF;
+    public static boolean switchStatus;
     private LocationManager locationManager;
     private LocationListener locationListener;
     private static double latitude;
     private static double longitude;
+    private static Location moLocation;
+    private static Switch enableNotification;
+    boolean Notification_OFF;
+    boolean Notification_ON;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,24 +47,44 @@ public class SettingsActivity2 extends AppCompatActivity {
         myTextView2 = findViewById(R.id.textView3);
         myTextView3 = findViewById(R.id.textView4);
 
-        seekBar();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         checkLocationServices(locationManager);
         locationListener();
-
         updateLocation();
+        seekBar();
     }
-
-    private void locationListener() {
+    public void setLatitude(Location location){
+        this.latitude = location.getLatitude();
+    }
+    public double getLatitude(){
+        return latitude;
+    }
+    public void setLongitude(Location location){
+        this.longitude = location.getLongitude();
+    }
+    public double getLongitude(){
+        return longitude;
+    }
+    public boolean getSwitchStatus(){
+        return switchStatus;
+    }
+    public void locationListener() {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(@NonNull Location location) {
-                latitude = getLatitude(location);
-                longitude = getLongitude(location);
+                if (switchStatus) {
+                    moLocation = location;
+                    setLatitude(moLocation);
+                    setLongitude(moLocation);
+                    latitude = getLatitude();
+                    longitude = getLongitude();
+                    DisplayAlertFragment mydisplay = new DisplayAlertFragment();
+                    mydisplay.displayUserLocation();
 
-                //called whenever location is updated
-                myTextView2.setText("Latitude: " + latitude);
-                myTextView3.setText("Longitude: " + longitude);
+                    //called whenever location is updated
+                    myTextView2.setText("Latitude: " + latitude);
+                    myTextView3.setText("Longitude: " + longitude);
+                }
             }
 
             @Override
@@ -91,14 +115,6 @@ public class SettingsActivity2 extends AppCompatActivity {
         }else{
             updateLocation();
         }
-    }
-
-    private double getLatitude(Location location) {
-        return location.getLatitude();
-    }
-
-    private double getLongitude(Location location) {
-        return location.getLongitude();
     }
 
     @Override
@@ -149,18 +165,17 @@ public class SettingsActivity2 extends AppCompatActivity {
     }
     public void checkLocationServices(final LocationManager locationManager){
         //check whether the phone's settings enabled location services for the app
-        mySwitch = findViewById(R.id.switch1);
+        mySwitch = findViewById(R.id.locationSwitch);
         //Save switch state in shared preferences
         SharedPreferences mySharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
         mySwitch.setChecked(mySharedPreferences.getBoolean("value", true));
         mySwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                location_OFF = !mySwitch.isChecked();
-                location_ON = mySwitch.isChecked();
-                if (location_ON) {
+                switchStatus = mySwitch.isChecked();
+                SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+                if (switchStatus) {
                     //When the switch is checked
-                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
                     editor.putBoolean("value", true);
                     editor.apply();
                     mySwitch.setChecked(true);
@@ -170,9 +185,8 @@ public class SettingsActivity2 extends AppCompatActivity {
                         // if the gps is enabled and location switch is turned on
                         updateLocation();
                     }
-                }else if (location_OFF) {
+                }else {
                     //When the switch isn't checked
-                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
                     editor.putBoolean("value", false);
                     editor.apply();
                     mySwitch.setChecked(false);
@@ -197,20 +211,54 @@ public class SettingsActivity2 extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-                            mySwitch.setChecked(location_OFF);
-                        }
-                        else {
-                            mySwitch.setChecked(location_ON);
+                            mySwitch.setChecked(false);
                         }
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mySwitch.setChecked(location_OFF);
+                        mySwitch.setChecked(false);
                         dialog.cancel();
                     }
                 });
         myAlert.create().show();
+    }
+
+    public void notifications (){
+        enableNotification = findViewById(R.id.mySwitch);
+        enableNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Notification_OFF = !enableNotification.isChecked();
+                Notification_ON = enableNotification.isChecked();
+                if (Notification_ON) {
+                    //When the switch is checked
+                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+                    editor.putBoolean("value", true);
+                    editor.apply();
+                    enableNotification.setChecked(true);
+                    notificationBuilder();
+                }else if (Notification_OFF) {
+                    //When the switch isn't checked
+                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+                    editor.putBoolean("value", false);
+                    editor.apply();
+                    enableNotification.setChecked(false);
+                }
+            }
+        });
+    }
+    public void notificationBuilder(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel")
+                .setContentTitle("First Notification Channel")
+                .setContentText("Hello, I am testing this notification channel")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+    }
+
+    public void createNotificationChannel(){
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.0){
+//
+//        }
     }
 }

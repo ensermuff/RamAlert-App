@@ -19,11 +19,6 @@
         android:theme="@style/AppTheme">
 
         <activity android:name="com.vcu.RamAlerts.SettingsActivity2" />
-
-        <activity
-            android:name="com.vcu.RamAlerts.DrawerActivity"
-            android:label="@string/title_activity_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,7 +31,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name="com.vcu.RamAlerts.SettingsActivity2" />
         <activity
             android:name="com.vcu.RamAlerts.DrawerActivity"
             android:label="@string/title_activity_drawer"

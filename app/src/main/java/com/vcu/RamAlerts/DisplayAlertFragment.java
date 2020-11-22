@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,12 +33,6 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     private String vcuAlert = "";
     private String[] coordinates = new String[2];
     public static HashMap<LatLng, Marker> markerList = new HashMap<>();
-    private OnMapReadyCallback callback = new OnMapReadyCallback() {
-        @Override
-        public void onMapReady(GoogleMap googleMap) {
-            DisplayAlertFragment.this.onMapReady(googleMap);
-        }
-    };
 
     @Nullable
     @Override

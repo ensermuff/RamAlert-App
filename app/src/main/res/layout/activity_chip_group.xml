@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:theme="@style/ShapeAppearance.MaterialComponents.SmallComponent"
     android:layout_height="match_parent"
+    android:background="@drawable/vcu_campus"
     tools:context=".ChipGroup">
 
     <com.google.android.material.chip.ChipGroup
@@ -12,7 +13,7 @@
         android:layout_width="358dp"
         android:layout_height="310dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="388dp"
         app:chipSpacingHorizontal="24dp"
@@ -112,7 +113,7 @@
         android:layout_marginEnd="301dp"
         android:layout_marginBottom="7dp"
         android:text="Choose the list of alerts you would like to display:"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/chipGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.086"

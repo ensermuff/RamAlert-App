@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="switch1" type="id" />
+    <item name="locationSwitch" type="id" />
     <item name="textView2" type="id" />
     <item name="seekBar" type="id" />
     <item name="myTextView" type="id" />

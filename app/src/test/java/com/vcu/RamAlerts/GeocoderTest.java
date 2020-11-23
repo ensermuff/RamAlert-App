@@ -1,16 +1,11 @@
 //package com.vcu.RamAlerts;
 //
-//import com.vcu.RamAlerts.Geocoder;
-//
-//
 //import org.json.JSONException;
 //import org.json.simple.parser.ParseException;
 //import org.junit.After;
 //import org.junit.Test;
-//
 //import java.io.IOException;
-//
-//import static org.junit.Assert.*;
+//import static org.junit.Assert.assertEquals;
 //
 //public class GeocoderTest {
 //

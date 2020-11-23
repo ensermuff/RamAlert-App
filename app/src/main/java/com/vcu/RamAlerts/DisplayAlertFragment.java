@@ -46,11 +46,11 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     public void displayUserLocation(){
         //user's location marker
         mMap.clear();
-        SettingsActivity2 settingsActivity2Instance = new SettingsActivity2();
+        LocationSettings locationSettingsInstance = new LocationSettings();
         //location switch is on
-            if (settingsActivity2Instance.getLatitude() != 0 && settingsActivity2Instance.getLongitude() != 0) {
-                double lat = settingsActivity2Instance.getLatitude();
-                double lon = settingsActivity2Instance.getLongitude();
+            if (locationSettingsInstance.getLatitude() != 0 && locationSettingsInstance.getLongitude() != 0) {
+                double lat = locationSettingsInstance.getLatitude();
+                double lon = locationSettingsInstance.getLongitude();
                 LatLng myUser = new LatLng(lat, lon);
                 Marker userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
                 markerList.put(myUser, userMarker);

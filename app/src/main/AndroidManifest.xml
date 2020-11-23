@@ -37,14 +37,6 @@
             android:name="com.vcu.RamAlerts.DrawerActivity"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.vcu.RamAlerts.DisplayAlert"
-            android:label="@string/title_activity_display_alert"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
         <activity android:name="com.vcu.RamAlerts.EmergencyVCUNumbersActivity" />
         <activity android:name="com.vcu.RamAlerts.SettingsActivity" />
         <activity

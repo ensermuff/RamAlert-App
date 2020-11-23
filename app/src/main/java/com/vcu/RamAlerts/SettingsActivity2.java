@@ -21,7 +21,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
 
 public class SettingsActivity2 extends AppCompatActivity {
 
@@ -225,40 +224,40 @@ public class SettingsActivity2 extends AppCompatActivity {
         myAlert.create().show();
     }
 
-    public void notifications (){
-        enableNotification = findViewById(R.id.mySwitch);
-        enableNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Notification_OFF = !enableNotification.isChecked();
-                Notification_ON = enableNotification.isChecked();
-                if (Notification_ON) {
-                    //When the switch is checked
-                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
-                    editor.putBoolean("value", true);
-                    editor.apply();
-                    enableNotification.setChecked(true);
-                    notificationBuilder();
-                }else if (Notification_OFF) {
-                    //When the switch isn't checked
-                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
-                    editor.putBoolean("value", false);
-                    editor.apply();
-                    enableNotification.setChecked(false);
-                }
-            }
-        });
-    }
-    public void notificationBuilder(){
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel")
-                .setContentTitle("First Notification Channel")
-                .setContentText("Hello, I am testing this notification channel")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-    }
+//    public void notifications (){
+//        enableNotification = findViewById(R.id.notificationSwitch);
+//        enableNotification.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Notification_OFF = !enableNotification.isChecked();
+//                Notification_ON = enableNotification.isChecked();
+//                if (Notification_ON) {
+//                    //When the switch is checked
+//                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+//                    editor.putBoolean("value", true);
+//                    editor.apply();
+//                    enableNotification.setChecked(true);
+//                    notificationBuilder();
+//                }else if (Notification_OFF) {
+//                    //When the switch isn't checked
+//                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+//                    editor.putBoolean("value", false);
+//                    editor.apply();
+//                    enableNotification.setChecked(false);
+//                }
+//            }
+//        });
+//    }
+//    public void notificationBuilder(){
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel")
+//                .setContentTitle("First Notification Channel")
+//                .setContentText("Hello, I am testing this notification channel")
+//                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+//    }
 
-    public void createNotificationChannel(){
+//    public void createNotificationChannel(){
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.0){
 //
 //        }
-    }
+//    }
 }

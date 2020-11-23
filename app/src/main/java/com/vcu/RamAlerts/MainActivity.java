@@ -1,16 +1,26 @@
 package com.vcu.RamAlerts;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import android.provider.Telephony;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -22,11 +32,16 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fragment displayAlert = new DisplayAlertFragment();
         setContentView(R.layout.nav_activity_main);
-        dl = (DrawerLayout)findViewById(R.id.drawer_layout);
-        t = new ActionBarDrawerToggle(this, dl,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        dl.addDrawerListener(t);
-        t.syncState();
+        initializeDrawer();
+        InboxReader retrieveMessage = new InboxReader();
+        if (!isSmsPermissionGranted()) {
+            requestReadAndSendSmsPermission();
+        }
+        retrieveMessage.sendVcuAlert(this);
+        Toast.makeText(this, retrieveMessage.messageBody, Toast.LENGTH_SHORT).show();
+
         ImageButton fab = findViewById(R.id.menuId);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +51,13 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+    }
+
+    private void initializeDrawer() {
+        dl = (DrawerLayout)findViewById(R.id.drawer_layout);
+        t = new ActionBarDrawerToggle(this, dl,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        dl.addDrawerListener(t);
+        t.syncState();
     }
 
     @Override
@@ -69,5 +91,19 @@ public class MainActivity extends AppCompatActivity{
                 break;
         }
         }
+    public boolean isSmsPermissionGranted() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED;
+    }
 
+    /**
+     * Request runtime SMS permission
+     */
+    private void requestReadAndSendSmsPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_SMS)) {
+            // You may display a non-blocking explanation here, read more in the documentation:
+            // https://developer.android.com/training/permissions/requesting.html
+        }
+        final int REQUEST_CODE_ASK_PERMISSIONS = 123;
+        ActivityCompat.requestPermissions(this, new String[]{"android.permission.READ_SMS"}, REQUEST_CODE_ASK_PERMISSIONS);
+    }
 }

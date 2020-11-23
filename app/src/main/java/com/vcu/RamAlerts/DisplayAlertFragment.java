@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -70,9 +73,20 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
                 markerList.clear();
             }
             else{
-                MarkerOptions markerOptions = new MarkerOptions().position(alert).title("Vcu alert");
-                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.rsz_1alert));
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(alert)
+                        .title("Vcu alert");
+                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.alert));
+                CircleOptions circleOptions = new CircleOptions()
+                        .center(alert)
+                        .radius(250)
+                        .strokeColor(Color.RED)
+                        .fillColor(0x22FF6666)
+                        .strokeWidth(5);
+                // Get back the mutable Circle
+                Circle circle = mMap.addCircle(circleOptions);
                 Marker amarker = mMap.addMarker(markerOptions);
+
                 markerList.put(alert, amarker);
                 moveToCurrentLocation(alert);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));

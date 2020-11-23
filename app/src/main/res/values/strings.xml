@@ -93,5 +93,7 @@
     <string name="button">Button</string>
     <string name="close_menu">Close Menu</string>
     <string name="_804_828_7233">(804) 828-7233</string>
+    <string name="vcu_ram_alerts" />
+    <string name="rodneyram_vcu_edu" />
 
 </resources>

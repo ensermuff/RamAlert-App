@@ -22,11 +22,12 @@
 
         <ImageButton
             android:id="@+id/menuId"
-            android:layout_width="100dp"
-            android:padding="10dp"
-            android:layout_height="100dp"
+            android:layout_width="86dp"
+            android:layout_height="68dp"
             android:background="#0000"
-            android:src="@android:drawable/ic_menu_preferences" />
+            android:fitsSystemWindows="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_action_name" />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

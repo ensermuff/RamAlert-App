@@ -14,6 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -51,10 +55,27 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
         mMapView.getMapAsync(this);
         return rootView;
     }
+    public void displayUserLocation(){
+        //user's location marker
+        mMap.clear();
+        SettingsActivity2 settingsActivity2Instance = new SettingsActivity2();
+        //location switch is on
+            if (settingsActivity2Instance.getLatitude() != 0 && settingsActivity2Instance.getLongitude() != 0) {
+                double lat = settingsActivity2Instance.getLatitude();
+                double lon = settingsActivity2Instance.getLongitude();
+                LatLng myUser = new LatLng(lat, lon);
+                Marker userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
+                markerList.put(myUser, userMarker);
+            }
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        setmMap(googleMap);
-        if(!vcuAlert.equals("")){
+        mMap = googleMap;
+        setmMap(mMap);
+        displayUserLocation();
+
+        if (!vcuAlert.equals("")) {
             Geocoder geocoder = new Geocoder();
             AsyncTask task = geocoder.execute(vcuAlert);
             try {
@@ -68,11 +89,10 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
             double lon = Double.parseDouble(coordinates[1]);
             //place a marker on our map
             LatLng alert = new LatLng(lat, lon);
-            if(markerList.containsKey(alert)){
+            if (markerList.containsKey(alert)) {
                 markerList.get(alert).remove();
                 markerList.clear();
-            }
-            else{
+            } else{
                 MarkerOptions markerOptions = new MarkerOptions()
                         .position(alert)
                         .title("Vcu alert");
@@ -86,12 +106,13 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
                 // Get back the mutable Circle
                 Circle circle = mMap.addCircle(circleOptions);
                 Marker amarker = mMap.addMarker(markerOptions);
-
+              
                 markerList.put(alert, amarker);
                 moveToCurrentLocation(alert);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
             }
         }
+
     }
     private void moveToCurrentLocation(LatLng currentLocation)
     {
@@ -124,5 +145,4 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     public void setInstance(){
         Instance = this;
     }
-
 }

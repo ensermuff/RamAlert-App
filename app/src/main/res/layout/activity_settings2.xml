@@ -119,9 +119,10 @@
             android:text="@string/crime_in_progress" />
     </com.google.android.material.chip.ChipGroup>
     <Switch
-        android:id="@+id/switch1"
-        android:layout_width="90dp"
-        android:layout_height="21dp"
+        android:id="@+id/locationSwitch"
+        android:layout_width="124dp"
+        android:layout_height="24dp"
+        android:showText="true"
         android:text="Off/On"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

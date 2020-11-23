@@ -81,14 +81,15 @@ public class MainActivity extends AppCompatActivity{
 
             case R.id.closeMenu:
             case R.id.alerts_list:
-                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+                intent = new Intent(this, ChipGroup.class);
+                startActivity(intent);
                 break;
 
             case R.id.vcu_phone_numbers:
                 intent = new Intent(this, EmergencyVCUNumbersActivity.class);
                 startActivity(intent);
                 break;
+
         }
         }
     public boolean isSmsPermissionGranted() {

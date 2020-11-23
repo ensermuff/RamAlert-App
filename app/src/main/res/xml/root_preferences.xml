@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        android:textColor="#000000"
+        android:textColor="#27330909"
         app:title="@string/settings_header">
 
         <PreferenceCategory android:title="General">

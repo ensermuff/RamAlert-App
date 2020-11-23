@@ -25,7 +25,6 @@ public class SMSListener extends BroadcastReceiver {
             Toast.makeText(context, messageBody, Toast.LENGTH_SHORT).show();
         }
         if(!messageBody.equals("")) {
-            DisplayAlert displayAlert = new DisplayAlert();
 ////            if(messageBody.contains("Conclusion")){
 ////                displayAlert.removeMarkerFromList();
 ////            }

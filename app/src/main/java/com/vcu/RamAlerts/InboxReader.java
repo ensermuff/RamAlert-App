@@ -28,7 +28,7 @@ public class InboxReader {
             }
 
             if (!messageBody.equals("")) {
-            DisplayAlertFragment displayAlertFragment = new DisplayAlertFragment();
+            DisplayAlertFragment displayAlertFragment = DisplayAlertFragment.Instance;
 //            if(messageBody.contains("Conclusion")){
 //                displayAlert.removeMarkerFromList();
 //            }

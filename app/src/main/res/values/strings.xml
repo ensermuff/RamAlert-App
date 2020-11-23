@@ -53,7 +53,6 @@
     <string name="_804_646_5100">(804) 646-5100</string>
     <string name="_804_828_safe_7233">(804) 828-SAFE (7233)</string>
     <string name="_804_828_6200">(804) 828-6200</string>
-    <string name="back"><![CDATA[< back]]></string>
     <string name="about_us">About US</string>
     <string name="support">Support</string>
 
@@ -92,5 +91,13 @@
     <string name="suspicious_person">Suspicious Person</string>
     <string name="active_shooter">Active Shooter</string>
     <string name="crime_in_progress">Crime in Progress</string>
+
+    <string name="resources_for_your_safety">RESOURCES FOR YOUR SAFETY</string>
+
+    <string name="button">Button</string>
+    <string name="close_menu">Close Menu</string>
+    <string name="_804_828_7233">(804) 828-7233</string>
+    <string name="vcu_ram_alerts" />
+    <string name="rodneyram_vcu_edu" />
 
 </resources>

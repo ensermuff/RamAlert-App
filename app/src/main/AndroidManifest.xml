@@ -7,7 +7,9 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +28,8 @@
             android:name="com.vcu.teamnapp.DrawerActivity"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name="com.vcu.RamAlerts.SettingsActivity2" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,7 +46,15 @@
             android:value="@string/google_maps_key" />
 
         <activity
+<<<<<<< HEAD
             android:name="com.vcu.teamnapp.DisplayAlert"
+=======
+            android:name="com.vcu.RamAlerts.DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DisplayAlert"
+>>>>>>> master
             android:label="@string/title_activity_display_alert"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -51,16 +63,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name="com.vcu.teamnapp.EmergencyVCUNumbersActivity" />
         <activity android:name="com.vcu.teamnapp.SettingsActivity" />
+=======
+        <activity android:name=".EmergencyVCUNumbersActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name="com.vcu.RamAlerts.EmergencyVCUNumbersActivity" />
+
+      <activity android:name="com.vcu.RamAlerts.EmergencyVCUNumbersActivity" />
+        <activity android:name="com.vcu.RamAlerts.SettingsActivity" />
+>>>>>>> master
         <activity
             android:name="com.vcu.teamnapp.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name="com.vcu.RamAlerts.SMSListener">
+            <intent-filter android:priority="500">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

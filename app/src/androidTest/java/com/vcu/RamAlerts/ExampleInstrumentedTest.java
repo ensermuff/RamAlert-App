@@ -24,5 +24,6 @@ public class ExampleInstrumentedTest {
         assertEquals("com.vcu.teamnapp", appContext.getPackageName());
 
 
+        assertEquals("com.vcu.RamAlerts", appContext.getPackageName());
     }
 }

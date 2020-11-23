@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
-
-    <group android:checkableBehavior="single">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view"
+    tools:context="com.vcu.RamAlerts.MainActivity">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/vcu_phone_numbers"
             android:icon="@drawable/ic_baseline_smartphone_24"
-            android:title="@string/vcu_phone_numbers" />
+            android:title="@string/vcu_phone_numbers"
+            android:onClick="onClickHandler"/>
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/alerts_list"
             android:icon="@android:drawable/ic_dialog_alert"
             android:title="@string/alerts" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/location_settings"
             android:icon="@android:drawable/ic_menu_mylocation"
-            android:title="@string/location" />
-    </group>
+            android:title="@string/location"
+            android:onClick="onClickHandler"
+            app:showAsAction="never"
+            />
+        <item
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:id="@+id/action_settings"
+            android:orderInCategory="100"
+            android:title="@string/action_settings"
+            android:onClick="onClickHandler"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/closeMenu"
+            android:icon="@android:drawable/ic_menu_close_clear_cancel"
+            android:title="@string/close_menu"
+            android:onClick="onClickHandler"
+            app:showAsAction="never"
+            />
 </menu>

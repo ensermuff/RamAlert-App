@@ -65,20 +65,20 @@ public class LocationSettings extends AppCompatActivity {
         return longitude;
     }
     public boolean getSwitchStatus(){
-        return switchStatus;
+        return mySwitch.isChecked();
     }
     public void locationListener() {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(@NonNull Location location) {
-                if (switchStatus) {
+                if (getSwitchStatus()) {
                     moLocation = location;
                     setLatitude(moLocation);
                     setLongitude(moLocation);
                     latitude = getLatitude();
                     longitude = getLongitude();
-                    DisplayAlertFragment mydisplay = new DisplayAlertFragment();
-                    mydisplay.displayUserLocation();
+                    DisplayAlertFragment myDisplay = new DisplayAlertFragment();
+                    myDisplay.displayUserLocation();
 
                     //called whenever location is updated
                     myTextView2.setText("Latitude: " + latitude);
@@ -171,9 +171,8 @@ public class LocationSettings extends AppCompatActivity {
         mySwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchStatus = mySwitch.isChecked();
                 SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
-                if (switchStatus) {
+                if (getSwitchStatus()) {
                     //When the switch is checked
                     editor.putBoolean("value", true);
                     editor.apply();

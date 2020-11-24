@@ -5,9 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import android.widget.Button;
 
 public class EmergencyVCUNumbersActivity extends AppCompatActivity {
 
@@ -79,7 +79,7 @@ public class EmergencyVCUNumbersActivity extends AppCompatActivity {
         int id = item.getItemId();
         Intent intent;
         if(id == R.id.action_settings){
-            intent = new Intent(this, SettingsActivity2.class);
+            intent = new Intent(this, LocationSettings.class);
             startActivity(intent);
         }
         else if(id == R.id.closeMenu){

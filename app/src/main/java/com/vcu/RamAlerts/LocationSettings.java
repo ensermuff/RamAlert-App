@@ -22,7 +22,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-public class SettingsActivity2 extends AppCompatActivity {
+public class LocationSettings extends AppCompatActivity {
 
     private static TextView myTextView;
     private static TextView myTextView2;
@@ -39,9 +39,9 @@ public class SettingsActivity2 extends AppCompatActivity {
     boolean Notification_ON;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings2);
+        setContentView(R.layout.activity_location);
 
         myTextView2 = findViewById(R.id.textView3);
         myTextView3 = findViewById(R.id.textView4);
@@ -65,20 +65,20 @@ public class SettingsActivity2 extends AppCompatActivity {
         return longitude;
     }
     public boolean getSwitchStatus(){
-        return switchStatus;
+        return mySwitch.isChecked();
     }
     public void locationListener() {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(@NonNull Location location) {
-                if (switchStatus) {
+                if (getSwitchStatus()) {
                     moLocation = location;
                     setLatitude(moLocation);
                     setLongitude(moLocation);
                     latitude = getLatitude();
                     longitude = getLongitude();
-                    DisplayAlertFragment mydisplay = new DisplayAlertFragment();
-                    mydisplay.displayUserLocation();
+                    DisplayAlertFragment myDisplay = new DisplayAlertFragment();
+                    myDisplay.displayUserLocation();
 
                     //called whenever location is updated
                     myTextView2.setText("Latitude: " + latitude);
@@ -134,7 +134,7 @@ public class SettingsActivity2 extends AppCompatActivity {
             locationListener();
 
         }catch (SecurityException e){
-            Toast.makeText(SettingsActivity2.this, "Request to update location permission is rejected, please turn on location services!", Toast.LENGTH_LONG).show();
+            Toast.makeText(LocationSettings.this, "Request to update location permission is rejected, please turn on location services!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -150,15 +150,15 @@ public class SettingsActivity2 extends AppCompatActivity {
                 double progressDecimal = (double) progress * 1/5;
                 progressValue = progressDecimal;
                 myTextView.setText("Distance:  " + progressValue + " mile radius");
-                Toast.makeText(SettingsActivity2.this, "SeekBar is in progress", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LocationSettings.this, "SeekBar is in progress", Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(SettingsActivity2.this, "Begin tracking ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LocationSettings.this, "Begin tracking ", Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(SettingsActivity2.this, "End tracking ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LocationSettings.this, "End tracking ", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -171,9 +171,8 @@ public class SettingsActivity2 extends AppCompatActivity {
         mySwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchStatus = mySwitch.isChecked();
                 SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
-                if (switchStatus) {
+                if (getSwitchStatus()) {
                     //When the switch is checked
                     editor.putBoolean("value", true);
                     editor.apply();
@@ -190,9 +189,9 @@ public class SettingsActivity2 extends AppCompatActivity {
                     editor.apply();
                     mySwitch.setChecked(false);
                     if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                        Toast.makeText(SettingsActivity2.this, "Enable location services on your phone's settings!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LocationSettings.this, "Enable location services on your phone's settings!", Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(SettingsActivity2.this, "GPS is already enabled, please toggle switch!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LocationSettings.this, "GPS is already enabled, please toggle switch!", Toast.LENGTH_SHORT).show();
                         myTextView2.setText("Latitude: ");
                         myTextView3.setText("Longitude: ");
                     }

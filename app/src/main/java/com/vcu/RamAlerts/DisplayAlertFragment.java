@@ -1,13 +1,7 @@
 package com.vcu.RamAlerts;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -40,6 +34,7 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     private String vcuAlert = "";
     private String[] coordinates = new String[2];
     public static HashMap<LatLng, Marker> markerList = new HashMap<>();
+    private static Marker userMarker;
 
     @Nullable
     @Override
@@ -56,17 +51,19 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
         return rootView;
     }
     public void displayUserLocation(){
-        //user's location marker
-        mMap.clear();
-        SettingsActivity2 settingsActivity2Instance = new SettingsActivity2();
-        //location switch is on
-            if (settingsActivity2Instance.getLatitude() != 0 && settingsActivity2Instance.getLongitude() != 0) {
-                double lat = settingsActivity2Instance.getLatitude();
-                double lon = settingsActivity2Instance.getLongitude();
-                LatLng myUser = new LatLng(lat, lon);
-                Marker userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
-                markerList.put(myUser, userMarker);
-            }
+//        mMap.clear();
+        if (userMarker != null){
+            userMarker.remove();
+        }
+        LocationSettings locationSettingsInstance = new LocationSettings();
+        if (locationSettingsInstance.getLatitude() != 0 && locationSettingsInstance.getLongitude() != 0) {
+            double lat = locationSettingsInstance.getLatitude();
+            double lon = locationSettingsInstance.getLongitude();
+            LatLng myUser = new LatLng(lat, lon);
+            //user's location marker
+            userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
+            markerList.put(myUser, userMarker);
+        }
     }
 
     @Override

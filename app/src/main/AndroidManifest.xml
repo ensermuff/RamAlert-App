@@ -7,7 +7,7 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
@@ -30,6 +30,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name="com.vcu.RamAlerts.SettingsActivity2" />
+        <activity android:name=".LocationSettings" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -50,7 +51,13 @@
         <activity android:name="com.vcu.RamAlerts.SettingsActivity" />
 
         <activity
-            android:name="com.vcu.RamAlerts.MainActivity"
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EmergencyVCUNumbersActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -58,8 +65,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver
-            android:name="com.vcu.RamAlerts.SMSListener">
+        <receiver android:name=".SMSListener">
             <intent-filter android:priority="500">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>

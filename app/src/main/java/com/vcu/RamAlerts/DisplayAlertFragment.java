@@ -34,6 +34,7 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     private String vcuAlert = "";
     private String[] coordinates = new String[2];
     public static HashMap<LatLng, Marker> markerList = new HashMap<>();
+    private static Marker userMarker;
 
     @Nullable
     @Override
@@ -50,14 +51,17 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
         return rootView;
     }
     public void displayUserLocation(){
-        mMap.clear();
+//        mMap.clear();
+        if (userMarker != null){
+            userMarker.remove();
+        }
         LocationSettings locationSettingsInstance = new LocationSettings();
         if (locationSettingsInstance.getLatitude() != 0 && locationSettingsInstance.getLongitude() != 0) {
             double lat = locationSettingsInstance.getLatitude();
             double lon = locationSettingsInstance.getLongitude();
             LatLng myUser = new LatLng(lat, lon);
             //user's location marker
-            Marker userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
+            userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
             markerList.put(myUser, userMarker);
         }
     }

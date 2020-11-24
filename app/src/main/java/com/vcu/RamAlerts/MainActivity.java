@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity{
                 break;
 
             case R.id.closeMenu:
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+                break;
+
             case R.id.alerts_list:
                 intent = new Intent(this, ChipGroup.class);
                 startActivity(intent);

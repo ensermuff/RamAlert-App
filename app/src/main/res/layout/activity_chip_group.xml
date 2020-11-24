@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/ShapeAppearance.MaterialComponents.SmallComponent"
+    android:theme="@style/Theme.MaterialComponents"
+    android:background="@drawable/vcu_campus"
     tools:context=".ChipGroup">
 
     <com.google.android.material.chip.ChipGroup
@@ -26,67 +27,67 @@
             android:id="@+id/chip15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lightening_and_thunderstorms" />
+            android:text="@string/lightening_and_thunderstorms"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/earthquake" />
+            android:text="@string/earthquake"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/snow_ice_storms" />
+            android:text="@string/snow_ice_storms"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fire" />
+            android:text="@string/fire"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tornado" />
+            android:text="@string/tornado"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hazardous_material_release" />
+            android:text="@string/hazardous_material_release"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/civil_disturbance" />
+            android:text="@string/civil_disturbance"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/medical_emergency" />
+            android:text="@string/medical_emergency"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip28"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/suspicious_person" />
+            android:text="@string/suspicious_person"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip29"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/active_shooter" />
+            android:text="@string/active_shooter"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/crime_in_progress" />
+            android:text="@string/crime_in_progress"/>
     </com.google.android.material.chip.ChipGroup>
     />
 </androidx.constraintlayout.widget.ConstraintLayout>

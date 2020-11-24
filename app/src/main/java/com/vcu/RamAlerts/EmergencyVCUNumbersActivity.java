@@ -1,14 +1,13 @@
 package com.vcu.RamAlerts;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 public class EmergencyVCUNumbersActivity extends AppCompatActivity {
 
@@ -31,6 +30,9 @@ public class EmergencyVCUNumbersActivity extends AppCompatActivity {
         counselingServicesButton = findViewById(R.id.counselingServicesButton);
     }
 
+    public void goBackToMain(View view) {
+        Intent intent = new Intent(EmergencyVCUNumbersActivity.this, MainActivity.class);
+    }
     public void callOnCampusEmergency(View view) {
         String number = "8048281234";
         Intent intent = new Intent(Intent.ACTION_CALL);
@@ -77,7 +79,7 @@ public class EmergencyVCUNumbersActivity extends AppCompatActivity {
         int id = item.getItemId();
         Intent intent;
         if(id == R.id.action_settings){
-            intent = new Intent(this, SettingsActivity2.class);
+            intent = new Intent(this, LocationSettings.class);
             startActivity(intent);
         }
         else if(id == R.id.closeMenu){
@@ -85,5 +87,4 @@ public class EmergencyVCUNumbersActivity extends AppCompatActivity {
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         }
     }
-
 }

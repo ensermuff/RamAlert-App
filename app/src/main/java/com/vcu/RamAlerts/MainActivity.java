@@ -4,25 +4,19 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-
-import android.provider.Telephony;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-
 import com.google.android.material.navigation.NavigationView;
+
 
 //Main Activity class
 public class MainActivity extends AppCompatActivity{
@@ -75,7 +69,7 @@ public class MainActivity extends AppCompatActivity{
                 break;
 
             case R.id.location_settings:
-                intent = new Intent(this, SettingsActivity2.class);
+                intent = new Intent(this, LocationSettings.class);
                 startActivity(intent);
                 break;
 
@@ -89,8 +83,6 @@ public class MainActivity extends AppCompatActivity{
                 intent = new Intent(this, EmergencyVCUNumbersActivity.class);
                 startActivity(intent);
                 break;
-
-
         }
         }
     public boolean isSmsPermissionGranted() {

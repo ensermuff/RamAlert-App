@@ -1,18 +1,16 @@
 package com.vcu.RamAlerts;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,6 +34,7 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     private String vcuAlert = "";
     private String[] coordinates = new String[2];
     public static HashMap<LatLng, Marker> markerList = new HashMap<>();
+    private static Marker userMarker;
 
     @Nullable
     @Override
@@ -51,10 +50,29 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
         mMapView.getMapAsync(this);
         return rootView;
     }
+    public void displayUserLocation(){
+//        mMap.clear();
+        if (userMarker != null){
+            userMarker.remove();
+        }
+        LocationSettings locationSettingsInstance = new LocationSettings();
+        if (locationSettingsInstance.getLatitude() != 0 && locationSettingsInstance.getLongitude() != 0) {
+            double lat = locationSettingsInstance.getLatitude();
+            double lon = locationSettingsInstance.getLongitude();
+            LatLng myUser = new LatLng(lat, lon);
+            //user's location marker
+            userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
+            markerList.put(myUser, userMarker);
+        }
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        setmMap(googleMap);
-        if(!vcuAlert.equals("")){
+        mMap = googleMap;
+        setmMap(mMap);
+        displayUserLocation();
+
+        if (!vcuAlert.equals("")) {
             Geocoder geocoder = new Geocoder();
             AsyncTask task = geocoder.execute(vcuAlert);
             try {
@@ -68,11 +86,10 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
             double lon = Double.parseDouble(coordinates[1]);
             //place a marker on our map
             LatLng alert = new LatLng(lat, lon);
-            if(markerList.containsKey(alert)){
+            if (markerList.containsKey(alert)) {
                 markerList.get(alert).remove();
                 markerList.clear();
-            }
-            else{
+            } else{
                 MarkerOptions markerOptions = new MarkerOptions()
                         .position(alert)
                         .title("Vcu alert");
@@ -86,13 +103,14 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
                 // Get back the mutable Circle
                 Circle circle = mMap.addCircle(circleOptions);
                 Marker amarker = mMap.addMarker(markerOptions);
-
+              
                 markerList.put(alert, amarker);
                 moveToCurrentLocation(alert);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
 
             }
         }
+
     }
     private void moveToCurrentLocation(LatLng currentLocation)
     {
@@ -125,5 +143,4 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     public void setInstance(){
         Instance = this;
     }
-
 }

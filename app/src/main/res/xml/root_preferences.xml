@@ -61,12 +61,6 @@
                 android:targetClass="com.vcu.RamAlerts.LocationSettings"
                 android:targetPackage="com.vcu.RamAlerts"/>
         </Preference>
-<!--        <SwitchPreferenceCompat-->
-<!--            app:defaultValue="@string/location_summary_off"-->
-<!--            app:key="location"-->
-<!--            app:summaryOff="@string/location_summary_off"-->
-<!--            app:summaryOn="@string/location_summary_on"-->
-<!--            app:title="@string/location_title" />-->
 
     </PreferenceCategory>
 

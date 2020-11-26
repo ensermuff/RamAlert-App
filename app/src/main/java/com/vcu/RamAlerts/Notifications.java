@@ -16,19 +16,21 @@ import androidx.core.app.NotificationManagerCompat;
 public class Notifications extends AppCompatActivity {
     private static final String CHANNEL_ID = "channel1";
     private NotificationManagerCompat notificationManagerCompat;
-    Switch enableNotification;
-    double userLatitude;
-    double userLongitude;
-    double alertLatitude;
-    double alertLongitude;
+    private Switch enableNotification;
+    private double userLatitude;
+    private double userLongitude;
+    private double alertLatitude;
+    private double alertLongitude;
+    private String message;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
+        notifications();
         createNotificationChannel();
         notificationManagerCompat = NotificationManagerCompat.from(this);
-        notifications();
     }
 
     private void createNotificationChannel() {
@@ -51,12 +53,15 @@ public class Notifications extends AppCompatActivity {
 
     public void notifications (){
         enableNotification = findViewById(R.id.notificationSwitch);
+        //Save switch state in shared preferences
+        SharedPreferences mySharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
+        enableNotification.setChecked(mySharedPreferences.getBoolean("value", true));
         enableNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
                 if (enableNotification.isChecked()) {
                     //When the switch is checked
-                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
                     editor.putBoolean("value", true);
                     editor.apply();
                     enableNotification.setChecked(true);
@@ -70,20 +75,19 @@ public class Notifications extends AppCompatActivity {
                     alertLongitude = displayAlertFragmentInstance.getAlertLongitude();
                     // if distance is less than or equal to 1 mile
                     if (distance(userLatitude, userLongitude, alertLatitude, alertLongitude) <= 1) {
-                        String message = "Distance of alert to user location is within a mile.";
+                        message = "Distance of alert to user location is within a mile.";
                         notificationBuilder(message);
                     } else {
-                        String message2 = "Distance of alert to user location isn't within a mile.";
-                        notificationBuilder(message2);
+                        message = "Distance of alert to user location isn't within a mile.";
+                        notificationBuilder(message);
                     }
                 }else {
                     //When the switch isn't checked
-                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
                     editor.putBoolean("value", false);
                     editor.apply();
                     enableNotification.setChecked(false);
-                    String message3 = "Notification switch isn't turned on";
-                    notificationBuilder(message3);
+                    message = "Notification switch isn't turned on";
+                    notificationBuilder(message);
                 }
             }
         });
@@ -110,7 +114,7 @@ public class Notifications extends AppCompatActivity {
     }
     public void notificationBuilder(String message){
         Notification notificationMyBuilder = new NotificationCompat.Builder(Notifications.this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_message)
+                .setSmallIcon(R.drawable.ic_notifications)
                 .setContentTitle("New Notification")
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)

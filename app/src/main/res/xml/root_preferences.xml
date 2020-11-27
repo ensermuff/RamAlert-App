@@ -32,15 +32,6 @@
                 android:targetPackage="com.vcu.RamAlerts"/>
         </Preference>
 
-        <ListPreference
-            android:layout_width="match_parent"
-            app:defaultValue="Notifications on all alerts"
-            app:entries="@array/notification_entries"
-            app:entryValues="@array/notification_values"
-            app:key="notification"
-            app:title="@string/notifications_title2"
-            app:useSimpleSummaryProvider="true" />
-
     </PreferenceCategory>
     <PreferenceCategory app:title="@string/location_header">
 

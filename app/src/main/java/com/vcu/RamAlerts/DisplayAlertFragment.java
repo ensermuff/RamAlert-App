@@ -122,6 +122,7 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
                 markerList.put(alert, amarker);
                 moveToCurrentLocation(alert);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
+
             }
         }
 

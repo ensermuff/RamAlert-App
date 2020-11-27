@@ -35,6 +35,8 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     private String[] coordinates = new String[2];
     public static HashMap<LatLng, Marker> markerList = new HashMap<>();
     private static Marker userMarker;
+    private static double latitude;
+    private static double longitude;
 
     @Nullable
     @Override
@@ -65,7 +67,18 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
             markerList.put(myUser, userMarker);
         }
     }
-
+    public void setAlertLatitude(double lat){
+        this.latitude = lat;
+    }
+    public double getAlertLatitude(){
+        return latitude;
+    }
+    public void setAlertLongitude(double lon){
+        this.longitude = lon;
+    }
+    public double getAlertLongitude(){
+        return longitude;
+    }
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -84,6 +97,8 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
             }
             double lat = Double.parseDouble(coordinates[0]);
             double lon = Double.parseDouble(coordinates[1]);
+            setAlertLatitude(lat);
+            setAlertLongitude(lon);
             //place a marker on our map
             LatLng alert = new LatLng(lat, lon);
             if (markerList.containsKey(alert)) {

@@ -27,7 +27,7 @@ public class InboxReader {
                     String number = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.ADDRESS));
                     if (number.equals("795-16") || number.equals("79516")) {
                         messageBody = c.getString(c.getColumnIndex(Telephony.Sms.BODY));
-                        if(occuredWithinLast24Hours(c.getLong(c.getColumnIndex(Telephony.Sms.DATE)))){
+                        if(isActiveAlert(c.getLong(c.getColumnIndex(Telephony.Sms.DATE)))){
                             messageArr.add(messageBody);
                         }
                     }
@@ -47,7 +47,7 @@ public class InboxReader {
 
             }
         }
-    public boolean occuredWithinLast24Hours(long date){
+    public boolean isActiveAlert(long date){
         Date currentDate = new Date();
         int currentHour = Integer.parseInt((String) android.text.format.DateFormat.format("hh", currentDate));
         int messageHour = Integer.parseInt((String) android.text.format.DateFormat.format("hh", date));

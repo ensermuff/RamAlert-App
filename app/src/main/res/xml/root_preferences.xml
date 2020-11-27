@@ -19,34 +19,18 @@
                 android:targetPackage="com.vcu.RamAlerts" />
         </Preference>
 
-        <Preference
-            android:summary="Choose the distance from 0.2 mile to 1 mile in radius"
-            android:title="@string/distance_title">
-            <intent
-                android:action="android.intent.action.PICK_ACTIVITY"
-                android:targetClass="com.vcu.RamAlerts.SettingsActivity2"
-                android:targetPackage="com.vcu.RamAlerts"/>
-        </Preference>
-
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/notifications_header">
 
-        <SwitchPreferenceCompat
-            app:defaultValue="@string/notification_summary_off"
-            app:key="notifications switch"
-            app:summaryOff="@string/notification_summary_off"
-            app:summaryOn="@string/notification_summary_on"
-            app:title="@string/notifications_title" />
-
-        <ListPreference
-            android:layout_width="match_parent"
-            app:defaultValue="Notifications on all alerts"
-            app:entries="@array/notification_entries"
-            app:entryValues="@array/notification_values"
-            app:key="notification"
-            app:title="@string/notifications_title2"
-            app:useSimpleSummaryProvider="true" />
+        <Preference
+            android:title="@string/notifications_title"
+            android:summary="Click this to go to Notification Switch">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
+                android:targetClass="com.vcu.RamAlerts.Notifications"
+                android:targetPackage="com.vcu.RamAlerts"/>
+        </Preference>
 
     </PreferenceCategory>
     <PreferenceCategory app:title="@string/location_header">
@@ -56,15 +40,18 @@
             android:title="@string/location_title">
             <intent
                 android:action="android.intent.action.PICK_ACTIVITY"
-                android:targetClass="com.vcu.RamAlerts.SettingsActivity2"
+                android:targetClass="com.vcu.RamAlerts.LocationSettings"
                 android:targetPackage="com.vcu.RamAlerts"/>
         </Preference>
-<!--        <SwitchPreferenceCompat-->
-<!--            app:defaultValue="@string/location_summary_off"-->
-<!--            app:key="location"-->
-<!--            app:summaryOff="@string/location_summary_off"-->
-<!--            app:summaryOn="@string/location_summary_on"-->
-<!--            app:title="@string/location_title" />-->
+
+        <Preference
+            android:summary="Choose the distance from 0.2 mile to 1 mile in radius"
+            android:title="@string/distance_title">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
+                android:targetClass="com.vcu.RamAlerts.LocationSettings"
+                android:targetPackage="com.vcu.RamAlerts"/>
+        </Preference>
 
     </PreferenceCategory>
 

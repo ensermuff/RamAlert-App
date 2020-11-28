@@ -18,8 +18,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.vcu.RamAlerts.ChipGroup"
+            android:label="ChipGroup"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LocationSettings" />
-        <activity android:name=".Notifications"></activity>
+        <activity android:name=".Notifications" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -32,11 +37,13 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+
         <activity
             android:name=".DrawerActivity"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EmergencyVCUNumbersActivity" />
+
         <activity android:name=".SettingsActivity" />
         <activity
             android:name=".MainActivity"
@@ -44,9 +51,11 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <receiver android:name=".SMSListener">
             <intent-filter android:priority="500">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />

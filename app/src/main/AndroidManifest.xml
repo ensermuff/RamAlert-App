@@ -29,7 +29,6 @@
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".LocationSettings" />
         <activity android:name=".Notifications"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

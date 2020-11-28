@@ -14,6 +14,7 @@
             android:icon="@android:drawable/ic_dialog_alert"
             android:title="@string/alerts"
             android:onClick="onClickHandler"/>
+        android:onClick="onClickHandler"/>
         <item
             android:id="@+id/action_settings"
             android:icon="@android:drawable/ic_menu_preferences"

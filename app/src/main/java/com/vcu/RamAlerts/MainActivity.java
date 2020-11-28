@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity{
                 intent = new Intent(this, LocationSettings.class);
                 startActivity(intent);
                 break;
-
             case R.id.closeMenu:
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
@@ -87,6 +86,7 @@ public class MainActivity extends AppCompatActivity{
                 intent = new Intent(this, EmergencyVCUNumbersActivity.class);
                 startActivity(intent);
                 break;
+
 
         }
         }

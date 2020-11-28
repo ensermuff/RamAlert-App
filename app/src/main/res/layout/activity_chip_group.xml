@@ -134,8 +134,6 @@
         android:layout_marginTop="27dp"
         android:layout_marginEnd="301dp"
         android:layout_marginBottom="7dp"
-        android:text="Choose the list of alerts you would like to display:"
-        android:textSize="24sp"
         android:text="@string/choose_the_list_of_alerts_you_would_like_to_display"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/chipGroup"

@@ -1,13 +1,7 @@
 package com.vcu.RamAlerts;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -40,6 +34,9 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     private String vcuAlert = "";
     private String[] coordinates = new String[2];
     public static HashMap<LatLng, Marker> markerList = new HashMap<>();
+    private static Marker userMarker;
+    private static double latitude;
+    private static double longitude;
 
     @Nullable
     @Override
@@ -56,19 +53,32 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
         return rootView;
     }
     public void displayUserLocation(){
-        //user's location marker
-        mMap.clear();
-        SettingsActivity2 settingsActivity2Instance = new SettingsActivity2();
-        //location switch is on
-            if (settingsActivity2Instance.getLatitude() != 0 && settingsActivity2Instance.getLongitude() != 0) {
-                double lat = settingsActivity2Instance.getLatitude();
-                double lon = settingsActivity2Instance.getLongitude();
-                LatLng myUser = new LatLng(lat, lon);
-                Marker userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
-                markerList.put(myUser, userMarker);
-            }
+//        mMap.clear();
+        if (userMarker != null){
+            userMarker.remove();
+        }
+        LocationSettings locationSettingsInstance = new LocationSettings();
+        if (locationSettingsInstance.getLatitude() != 0 && locationSettingsInstance.getLongitude() != 0) {
+            double lat = locationSettingsInstance.getLatitude();
+            double lon = locationSettingsInstance.getLongitude();
+            LatLng myUser = new LatLng(lat, lon);
+            //user's location marker
+            userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
+            markerList.put(myUser, userMarker);
+        }
     }
-
+    public void setAlertLatitude(double lat){
+        this.latitude = lat;
+    }
+    public double getAlertLatitude(){
+        return latitude;
+    }
+    public void setAlertLongitude(double lon){
+        this.longitude = lon;
+    }
+    public double getAlertLongitude(){
+        return longitude;
+    }
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -87,6 +97,8 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
             }
             double lat = Double.parseDouble(coordinates[0]);
             double lon = Double.parseDouble(coordinates[1]);
+            setAlertLatitude(lat);
+            setAlertLongitude(lon);
             //place a marker on our map
             LatLng alert = new LatLng(lat, lon);
             if (markerList.containsKey(alert)) {
@@ -110,6 +122,7 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
                 markerList.put(alert, amarker);
                 moveToCurrentLocation(alert);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(alert));
+
             }
         }
 

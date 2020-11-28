@@ -1,126 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/vcu_campus"
-    tools:context=".EmergencyVCUNumbersActivity">
+    android:background="@drawable/vcu_campus">
 
-    <TextView
-        android:id="@+id/emergencyListTitleText"
-        android:layout_width="328dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="33dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/resources_for_your_safety"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/clickToCallTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".EmergencyVCUNumbersActivity"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="275dp">
 
-    <Button
-        android:id="@+id/onCampusButton"
-        android:layout_width="269dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="27dp"
-        android:background="@color/colorWhite"
-        android:onClick="callOnCampusEmergency"
-        android:text="On-Campus Emergency"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clickToCallTextView" />
+        <Button
+            android:id="@+id/counselingServicesButton"
+            android:layout_width="269dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="36dp"
+            android:background="@color/colorWhite"
+            android:onClick="callCounselingServices"
+            android:text="24 Hour Counseling Services"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ramsafeButton" />
 
-    <Button
-        android:id="@+id/offCampusButton"
-        android:layout_width="269dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="19dp"
-        android:background="@color/colorWhite"
-        android:text="Off-Campus Emergency"
-        android:onClick="callOffCampusEmergency"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onCampusButton" />
+        <Button
+            android:id="@+id/ramsafeButton"
+            android:layout_width="269dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="31dp"
+            android:background="@color/colorWhite"
+            android:onClick="callRamsafe"
+            android:text="RamSafe Escort Service"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvaPDButton" />
 
-    <Button
-        android:id="@+id/vcuPDButton"
-        android:layout_width="269dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="25dp"
-        android:background="@color/colorWhite"
-        android:text="VCU Police Dept (Non-Emergency)"
-        android:onClick="callVCUPD"
-        android:textSize="18sp"
-        android:textColor="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/offCampusButton" />
+        <Button
+            android:id="@+id/rvaPDButton"
+            android:layout_width="269dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorWhite"
+            android:onClick="callRVAPD"
+            android:text="Richmond Police Dept (Non-Emergency)"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vcuPDButton" />
 
-    <Button
-        android:id="@+id/rvaPDButton"
-        android:layout_width="269dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="27dp"
-        android:background="@color/colorWhite"
-        android:text="Richmond Police Dept (Non-Emergency)"
-        android:textSize="18sp"
-        android:textColor="@android:color/darker_gray"
-        android:onClick="callRVAPD"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vcuPDButton" />
+        <TextView
+            android:id="@+id/emergencyListTitleText"
+            android:layout_width="328dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/resources_for_your_safety"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/ramsafeButton"
-        android:layout_width="269dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="29dp"
-        android:background="@color/colorWhite"
-        android:text="RamSafe Escort Service"
-        android:textSize="18sp"
-        android:textColor="@android:color/darker_gray"
-        android:onClick="callRamsafe"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvaPDButton" />
+        <Button
+            android:id="@+id/vcuPDButton"
+            android:layout_width="269dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="33dp"
+            android:background="@color/colorWhite"
+            android:onClick="callVCUPD"
+            android:text="VCU Police Dept (Non-Emergency)"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/offCampusButton" />
 
-    <Button
-        android:id="@+id/counselingServicesButton"
-        android:layout_width="269dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorWhite"
-        android:text="24 Hour Counseling Services"
-        android:textSize="18dp"
-        android:onClick="callCounselingServices"
-        android:textColor="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ramsafeButton" />
+        <Button
+            android:id="@+id/offCampusButton"
+            android:layout_width="269dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="62dp"
+            android:background="@color/colorWhite"
+            android:onClick="callOffCampusEmergency"
+            android:text="Off-Campus Emergency"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/onCampusButton" />
 
-    <TextView
-        android:id="@+id/clickToCallTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
-        android:text="(CLICK TO CALL)"
-        android:textColor="@color/colorWhite"
-        android:textSize="18dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/onCampusButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emergencyListTitleText" />
+        <Button
+            android:id="@+id/onCampusButton"
+            android:layout_width="269dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="62dp"
+            android:background="@color/colorWhite"
+            android:onClick="callOnCampusEmergency"
+            android:text="On-Campus Emergency"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clickToCallTextView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/clickToCallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginEnd="131dp"
+            android:text="(CLICK TO CALL)"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emergencyListTitleText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

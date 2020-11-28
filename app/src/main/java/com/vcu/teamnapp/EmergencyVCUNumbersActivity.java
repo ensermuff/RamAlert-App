@@ -5,9 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import android.widget.Button;
 
 public class EmergencyVCUNumbersActivity extends AppCompatActivity {
 
@@ -30,47 +30,44 @@ public class EmergencyVCUNumbersActivity extends AppCompatActivity {
         counselingServicesButton = findViewById(R.id.counselingServicesButton);
     }
 
-    public void goBackToMain(View view) {
-        Intent intent = new Intent(EmergencyVCUNumbersActivity.this, MainActivity.class);
-    }
     public void callOnCampusEmergency(View view) {
-        String number = "8048281234";
-        Intent intent = new Intent(Intent.ACTION_CALL);
+        String number = "tel:8048281234";
+        Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse(number));
         startActivity(intent);
     }
 
     public void callOffCampusEmergency(View view) {
-        String number = "911";
-        Intent intent = new Intent(Intent.ACTION_CALL);
+        String number = "tel:911";
+        Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse(number));
         startActivity(intent);
     }
 
     public void callVCUPD(View view) {
-        String number = "8048281196";
-        Intent intent = new Intent(Intent.ACTION_CALL);
+        String number = "tel:8048281196";
+        Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse(number));
         startActivity(intent);
     }
 
     public void callRVAPD(View view) {
-        String number = "8046465100";
-        Intent intent = new Intent(Intent.ACTION_CALL);
+        String number = "tel:8046465100";
+        Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse(number));
         startActivity(intent);
     }
 
     public void callRamsafe(View view) {
-        String number = "8048287233";
-        Intent intent = new Intent(Intent.ACTION_CALL);
+        String number = "tel:8048287233";
+        Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse(number));
         startActivity(intent);
     }
 
     public void callCounselingServices(View view) {
-        String number = "8048286200";
-        Intent intent = new Intent(Intent.ACTION_CALL);
+        String number = "tel:8048286200";
+        Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse(number));
         startActivity(intent);
     }
@@ -79,7 +76,7 @@ public class EmergencyVCUNumbersActivity extends AppCompatActivity {
         int id = item.getItemId();
         Intent intent;
         if(id == R.id.action_settings){
-            intent = new Intent(this, SettingsActivity2.class);
+            intent = new Intent(this, LocationSettings.class);
             startActivity(intent);
         }
         else if(id == R.id.closeMenu){

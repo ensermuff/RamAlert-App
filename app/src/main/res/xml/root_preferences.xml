@@ -24,17 +24,6 @@
     <PreferenceCategory app:title="@string/notifications_header">
 
         <Preference
-            android:summary="Choose alert types that you want to get notifications for"
-            android:title="Alert Types">
-            <intent
-                android:action="android.intent.action.PICK_ACTIVITY"
-                android:targetClass="com.vcu.RamAlerts.ChipGroup"
-                android:targetPackage="com.vcu.RamAlerts" />
-        </Preference>
-
-        <Preference
-            android:summary="Choose the distance from 0.2 mile to 1 mile in radius "
-            android:title="@string/distance_title">
             android:title="@string/notifications_title"
             android:summary="Click this to go to Notification Switch">
             <intent

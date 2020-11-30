@@ -11,4 +11,9 @@ public class ChipGroup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chip_group);
     }
+//
+//    public void goBackToMain(View view) {
+//        Intent intent = new Intent(ChipGroup.this,MainActivity.class);
+//        startActivity(intent);
+//    }
 }

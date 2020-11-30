@@ -55,6 +55,7 @@
     <string name="_804_828_6200">(804) 828-6200</string>
     <string name="about_us">About US</string>
     <string name="support">Support</string>
+
     <string name="title_activity_display_alert">Map</string>
     <string name="vcu_police">VCU Police</string>
     <string name="title_activity_drawer">DrawerActivity</string>
@@ -69,12 +70,6 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <!-- Chip group -->
-    <string name="crime_in_progress">Crime in Progress</string>
-    <string name="active_shooter">Active Shooter</string>
-    <string name="suspicious_person">Suspicious Person</string>
-    <string name="medical_emergency">Medical Emergency</string>
-    <string name="civil_disturbance">Civil Disturbance</string>
-    <string name="hazardous_material_release">Hazardous Material Release</string>
     <string name="tornado">Tornado</string>
     <string name="fire">Fire</string>
     <string name="snow_ice_storms">Snow/Ice Storms</string>
@@ -83,9 +78,17 @@
     <string name="vcu_phone_numbers">VCU Phone Numbers</string>
     <string name="alerts">Alerts</string>
     <string name="location">Location</string>
+    <string name="title_activity_chip_group">ChipGroup</string>
     <string name="page_title">page_title</string>
     <string name="more">More</string>
     <string name="content_description_more">This is where we will place our \"more\" section</string>
+    <string name="hazardous_material_release">Hazardous Material Release</string>
+    <string name="alert_types">Alert Types:</string>
+    <string name="civil_disturbance">Civil Disturbance</string>
+    <string name="medical_emergency">Medical Emergency</string>
+    <string name="suspicious_person">Suspicious Person</string>
+    <string name="active_shooter">Active Shooter</string>
+    <string name="crime_in_progress">Crime in Progress</string>
 
     <string name="resources_for_your_safety">RESOURCES FOR YOUR SAFETY</string>
 
@@ -96,4 +99,5 @@
     <string name="rodneyram_vcu_edu" />
     <string name="choose_the_list_of_alerts_you_would_like_to_display">Choose the list of alerts you would like to display:</string>
 
+    <string name="google_maps_key"/>
 </resources>

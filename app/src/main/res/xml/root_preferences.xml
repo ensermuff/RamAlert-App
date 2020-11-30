@@ -12,10 +12,18 @@
 
         <Preference
             android:summary="Click to go to the Emergency VCU Numbers page"
-            android:title="Emergency VCU Phone Numbers">
+            android:title="Emergency VCU Phone Numbers"/>
             <intent
                 android:action="android.intent.action.PICK_ACTIVITY"
                 android:targetClass="com.vcu.RamAlerts.EmergencyVCUNumbersActivity"
+                android:targetPackage="com.vcu.RamAlerts" />
+
+        <Preference
+            android:summary="Choose alert types you wish to get notifications for"
+            android:title="Alerts">
+            <intent
+                android:action="android.intent.action.PICK_ACTIVITY"
+                android:targetClass="com.vcu.RamAlerts.ChipGroup"
                 android:targetPackage="com.vcu.RamAlerts" />
         </Preference>
 

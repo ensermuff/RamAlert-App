@@ -55,13 +55,13 @@ public class LocationSettings extends AppCompatActivity {
     public void setLatitude(Location location){
         this.latitude = location.getLatitude();
     }
-    public double getLatitude(){
+    public static double getLatitude(){
         return latitude;
     }
     public void setLongitude(Location location){
         this.longitude = location.getLongitude();
     }
-    public double getLongitude(){
+    public static double getLongitude(){
         return longitude;
     }
     public boolean getSwitchStatus(){

@@ -67,13 +67,13 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
     public void setAlertLatitude(double lat){
         this.latitude = lat;
     }
-    public double getAlertLatitude(){
+    public static double getAlertLatitude(){
         return latitude;
     }
     public void setAlertLongitude(double lon){
         this.longitude = lon;
     }
-    public double getAlertLongitude(){
+    public static double getAlertLongitude(){
         return longitude;
     }
     public MarkerOptions setMarkerOptions(LatLng position, String title, int icon){

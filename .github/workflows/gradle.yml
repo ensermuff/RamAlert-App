@@ -16,4 +16,4 @@ jobs:
       uses: techulus/push-github-action@1.0.0
       env:
         API_KEY: "6dc13390-13a0-4edf-9961-9fc7216ac108"
-        MESSAGE: "There is a new commit!"
+        MESSAGE: "Fyodor Muzyka There is a new build!"

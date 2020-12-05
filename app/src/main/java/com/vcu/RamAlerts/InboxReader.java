@@ -35,18 +35,20 @@ public class InboxReader {
             }
 
             if (!messageBody.equals("")) {
-            DisplayAlertFragment displayAlertFragment = DisplayAlertFragment.Instance;
-//            if(messageBody.contains("Conclusion")){
-//                displayAlert.removeMarkerFromList();
-//
-                for(String message : messageArr) {
-                    displayAlertFragment.setVcuAlert(message);
-                    displayAlertFragment.placeAlert();
-                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                }
+                setAlerts(context, messageArr);
 
             }
         }
+
+    private void setAlerts(Context context, ArrayList<String> messageArr) {
+        DisplayAlertFragment displayAlertFragment = DisplayAlertFragment.Instance;
+        for(String message : messageArr) {
+            displayAlertFragment.setVcuAlert(message);
+            displayAlertFragment.placeAlert();
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public boolean isActiveAlert(long date){
         Date currentDate = new Date();
         int currentHour = Integer.parseInt((String) android.text.format.DateFormat.format("hh", currentDate));

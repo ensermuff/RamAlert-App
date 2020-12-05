@@ -1,6 +1,5 @@
 package com.vcu.RamAlerts;
 
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -53,7 +51,6 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
         return rootView;
     }
     public void displayUserLocation(){
-//        mMap.clear();
         if (userMarker != null){
             userMarker.remove();
         }
@@ -63,21 +60,28 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
             double lon = locationSettingsInstance.getLongitude();
             LatLng myUser = new LatLng(lat, lon);
             //user's location marker
-            userMarker = mMap.addMarker(new MarkerOptions().position(myUser).title("My Location"));
+            userMarker = mMap.addMarker(setMarkerOptions(myUser, "User location", R.drawable.user_location));
             markerList.put(myUser, userMarker);
         }
     }
     public void setAlertLatitude(double lat){
         this.latitude = lat;
     }
-    public double getAlertLatitude(){
+    public static double getAlertLatitude(){
         return latitude;
     }
     public void setAlertLongitude(double lon){
         this.longitude = lon;
     }
-    public double getAlertLongitude(){
+    public static double getAlertLongitude(){
         return longitude;
+    }
+    public MarkerOptions setMarkerOptions(LatLng position, String title, int icon){
+        MarkerOptions markerOptions = new MarkerOptions().position(position).title(title);
+        if(icon != -1){
+            markerOptions.icon(BitmapDescriptorFactory.fromResource(icon));
+        }
+        return markerOptions;
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -116,7 +120,7 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
                         .fillColor(0x22FF6666)
                         .strokeWidth(5);
                 // Get back the mutable Circle
-                Circle circle = mMap.addCircle(circleOptions);
+                mMap.addCircle(circleOptions);
                 Marker amarker = mMap.addMarker(markerOptions);
               
                 markerList.put(alert, amarker);
@@ -136,13 +140,6 @@ public class DisplayAlertFragment extends Fragment implements OnMapReadyCallback
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
 
-    }
-    public Bitmap bitmapSizeByScale(Bitmap bitmapIn, float scall_zero_to_one_f) {
-
-        Bitmap bitmapOut = Bitmap.createScaledBitmap(bitmapIn,
-                Math.round(bitmapIn.getWidth() * scall_zero_to_one_f),
-                Math.round(bitmapIn.getHeight() * scall_zero_to_one_f), false);
-        return bitmapOut;
     }
     public void setVcuAlert(String alert){
         vcuAlert = alert;

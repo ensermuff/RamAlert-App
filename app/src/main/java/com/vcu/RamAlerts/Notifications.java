@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.SharedPreferences;
+import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -66,13 +67,11 @@ public class Notifications extends AppCompatActivity {
                     editor.apply();
                     enableNotification.setChecked(true);
 
-                    LocationSettings locationSettingsInstance = new LocationSettings();
-                    userLatitude = locationSettingsInstance.getLatitude();
-                    userLongitude = locationSettingsInstance.getLongitude();
+                    userLatitude = LocationSettings.getLatitude();
+                    userLongitude = LocationSettings.getLongitude();
 
-                    DisplayAlertFragment displayAlertFragmentInstance = new DisplayAlertFragment();
-                    alertLatitude = displayAlertFragmentInstance.getAlertLatitude();
-                    alertLongitude = displayAlertFragmentInstance.getAlertLongitude();
+                    alertLatitude = DisplayAlertFragment.getAlertLatitude();
+                    alertLongitude = DisplayAlertFragment.getAlertLongitude();
                     // if distance is less than or equal to 1 mile
                     if (distance(userLatitude, userLongitude, alertLatitude, alertLongitude) <= 1) {
                         message = "Distance of alert to user location is within a mile.";

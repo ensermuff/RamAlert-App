@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
-
+//this is just test code
 public class Geocoder extends AsyncTask<String, Void, String[]> {
     public static Geocoder geocoder;
     private static final String API_KEY = "AIzaSyAl-RZHT5WG66Ghz_wcL79U185LaSFJM74";

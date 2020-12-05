@@ -4,7 +4,7 @@ name: Send Push Notification
 
 on:
   push:
-    branches: [ Fyodors-new-branch ]
+    branches: [ rohits-branch ]
 
 jobs:
   build:
@@ -15,5 +15,5 @@ jobs:
     - name: Send Push Notification
       uses: techulus/push-github-action@1.0.0
       env:
-        API_KEY: ${{ secrets.API_KEY }}
-        MESSAGE: "Fyodor Muzyka There is a new build!"
+        API_KEY: "2e9984b3-e0b7-4819-8928-5cf3f87cffac"
+        MESSAGE: "Rohit Karnati There is a new build!"

@@ -35,6 +35,7 @@ public class Geocoder extends AsyncTask<String, Void, String[]> {
     public String[] geocode(String vcuAlert) throws IOException, ParseException {
         //if(vcuAlert.contains("Conclusion")){
         //call method to remove "Pin" on the map
+        //new comment
         //}
         if(vcuAlert.equals("")){
             return new String[2];

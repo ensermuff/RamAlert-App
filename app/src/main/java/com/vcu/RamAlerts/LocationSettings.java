@@ -34,9 +34,6 @@ public class LocationSettings extends AppCompatActivity {
     private static double latitude;
     private static double longitude;
     private static Location moLocation;
-    private static Switch enableNotification;
-    boolean Notification_OFF;
-    boolean Notification_ON;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
